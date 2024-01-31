@@ -11,7 +11,8 @@ from ..utils.mask import Mask
 from shutil import copyfile
 from ..config.configData import ConfigData
 from ..config.configInterface import ConfigInterface
-import requests,webbrowser as wb,os
+from ..updatewindow.updatewindow import UpdateWindow
+import requests,webbrowser as wb
 from dotenv import load_dotenv
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -20,86 +21,64 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+        # .env
         load_dotenv()
-        self._checkUpdate()
-
         # Config
         self._config: ConfigData = ConfigData()
         self._configApp: ConfigInterface = ConfigInterface()
-
-        # Start document
+        # Document
         self._document: Document = Document(self)
-
+        # UI
         self.__uiInit()
-
-        self.ui.receipt_num_edit.setText(self._document.number)
-        self._AUTONUMBER: str = self._document.number
-
-        self._updateCountryComboBox()
-
+        # Check for updates
+        self._openUpdateDialog()
         # Config
         if self.ui.save_data_ckb.isChecked():
             self._loadConfig()
 
+        self.ui.receipt_num_edit.setText(self._document.number)
+        self._AUTONUMBER: str = self._document.number
+        self._updateCountryComboBox()
+
         # Signals
         self.ui.comp_edit.textChanged.connect(
-            lambda: self._onEditFinished(self.ui.comp_edit))
-        
+            lambda: self._onTextChanged(self.ui.comp_edit))
         self.ui.date_edit.dateChanged.connect(
-            lambda: self._onEditFinished(self.ui.date_edit))
-
+            lambda: self._onTextChanged(self.ui.date_edit))
         self.ui.receipt_num_edit.textChanged.connect(
-            lambda: self._onEditFinished(self.ui.receipt_num_edit))
-
+            lambda: self._onTextChanged(self.ui.receipt_num_edit))
         self.ui.toggle_lock_num_btn.clicked.connect(self._onToggleLockNumBtnClicked)
-
         self.ui.payer_nam_edit.textChanged.connect(
-            lambda: self._onEditFinished(self.ui.payer_nam_edit))
-
+            lambda: self._onTextChanged(self.ui.payer_nam_edit))
         self.ui.payer_cpf_edit.textChanged.connect(
-            lambda: self._onEditFinished(self.ui.payer_cpf_edit))
-
+            lambda: self._onTextChanged(self.ui.payer_cpf_edit))
         self.ui.payer_pho_edit.textChanged.connect(
-            lambda: self._onEditFinished(self.ui.payer_pho_edit))
-
+            lambda: self._onTextChanged(self.ui.payer_pho_edit))
         self.ui.benef_nam_edit.textChanged.connect(
-            lambda: self._onEditFinished(self.ui.benef_nam_edit))
-
+            lambda: self._onTextChanged(self.ui.benef_nam_edit))
         self.ui.benef_cpf_edit.textChanged.connect(
-            lambda: self._onEditFinished(self.ui.benef_cpf_edit))
-
+            lambda: self._onTextChanged(self.ui.benef_cpf_edit))
         self.ui.benef_cep_edit.textChanged.connect(
-            lambda: self._onEditFinished(self.ui.benef_cep_edit))
-
+            lambda: self._onTextChanged(self.ui.benef_cep_edit))
         self.ui.benef_sta_edit.textChanged.connect(
-            lambda: self._onEditFinished(self.ui.benef_sta_edit))
-
+            lambda: self._onTextChanged(self.ui.benef_sta_edit))
         self.ui.benef_cit_edit.textChanged.connect(
-            lambda: self._onEditFinished(self.ui.benef_cit_edit))
-
-        self.ui.benef_str_edit.editingFinished.connect(
-            lambda: self._onEditFinished(self.ui.benef_str_edit))
-        
+            lambda: self._onTextChanged(self.ui.benef_cit_edit))
+        self.ui.benef_str_edit.textChanged.connect(
+            lambda: self._onTextChanged(self.ui.benef_str_edit))
         self.ui.benef_num_edit.textChanged.connect(
-            lambda: self._onEditFinished(self.ui.benef_num_edit))
-        
-        self.ui.benef_nei_edit.editingFinished.connect(
-            lambda: self._onEditFinished(self.ui.benef_nei_edit))
-        
+            lambda: self._onTextChanged(self.ui.benef_num_edit))
+        self.ui.benef_nei_edit.textChanged.connect(
+            lambda: self._onTextChanged(self.ui.benef_nei_edit))
         self.ui.benef_pho_edit.textChanged.connect(
-            lambda: self._onEditFinished(self.ui.benef_pho_edit))
-
+            lambda: self._onTextChanged(self.ui.benef_pho_edit))
         self.ui.country_combo.currentIndexChanged.connect(self._onCountryComboBoxIndexChanged)
-
         self.ui.prod_valu_edit.textChanged.connect(
             lambda: self.ui.prod_valu_edit.setText(self.applyMask(self.ui.prod_valu_edit.text(), 'money')))
-
         self.ui.receipt_obs_edit.textChanged.connect(
-            lambda: self._onEditFinished(self.ui.receipt_obs_edit))
-
+            lambda: self._onTextChanged(self.ui.receipt_obs_edit))
         self.ui.currency_btn.clicked.connect(self._onCurrencyBtnClicked)
         self.ui.currency_line_edit.returnPressed.connect(self._onCurrencyLineEditReturnPressed)
-
         self.ui.prod_valu_scro.actionTriggered.connect(self._onValueScrollActionTriggered)
         self.ui.add_serv_btn.clicked.connect(self._onAddBtnClicked)
         self.ui.logo_btn.clicked.connect(self._openLogoDialog)
@@ -108,16 +87,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.ui.print_btn.clicked.connect(self.ui.actionPrint.trigger)
         self.ui.preview_btn.clicked.connect(self.ui.actionPreview.trigger)
         self.ui.save_data_ckb.clicked.connect(self._onSaveDataCkbClicked)
-
         # Actions
         self.ui.actionPreview.triggered.connect(self._onPreviewActionTriggered)
         self.ui.actionPrint.triggered.connect(self._onPrintActionTriggered)
-        self.ui.actionCheckForUpdates.triggered.connect(
-            lambda: wb.open('https://github.com/victobriel/receipt-generator/releases/latest')
-        )
+        self.ui.actionCheckForUpdates.triggered.connect(self._openUpdateDialog)
         self.ui.actionDocumentation.triggered.connect(
             lambda: wb.open('https://github.com/victobriel/receipt-generator'))
-
         self.ui.country_combo.setCurrentIndex(0)
 
     def __uiInit(self) -> None:
@@ -168,11 +143,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.ui.save_data_ckb.setChecked(self._configApp.get('saveData'))
 
-    def _checkUpdate(self) -> None:
-        version: str = os.getenv('VERSION')
-        githubVersion: str = requests.get('https://api.github.com/repos/victobriel/receipt-generator/releases/latest').json()['tag_name']
-        if version != githubVersion:
-            self.statusBar().showMessage(f'Nova versão disponível: {githubVersion}', timeout=5000)
+    def _openUpdateDialog(self) -> None:
+        if not hasattr(self, '_uw'):
+            self._uw: UpdateWindow = UpdateWindow(self)
+        self._uw.show()
+        while self._uw.exec() == QDialog.Accepted and self._uw.isVisible():
+            pass
 
     def resizeEvent(self, event: QResizeEvent) -> None:
         size = self.ui.prod_list.width()
@@ -208,7 +184,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         del mask
         return maskedText
 
-    def _onEditFinished(self, obj) -> None:
+    def _onTextChanged(self, obj) -> None:
         objName = obj.objectName()
         match objName:
             case 'benef_cep_edit':
@@ -303,9 +279,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def _onPreviewActionTriggered(self) -> None:
         self._document.render()
-        self.w: DocumentViewer = DocumentViewer()
-        self.w.show()
-        self.w.openFile(self._document.fileName)
+        self._dw: DocumentViewer = DocumentViewer(self)
+        self._dw.show()
+        self._dw.openFile(self._document.fileName)
 
     def _onPrintActionTriggered(self) -> None:
         self._document.render()

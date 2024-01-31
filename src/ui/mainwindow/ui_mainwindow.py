@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ui_mainwindowJwSPfD.ui'
+## Form generated from reading UI file 'ui_mainwindowJIKUHK.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(976, 922)
+        MainWindow.resize(976, 920)
         icon = QIcon()
         icon.addFile(u":/app/assets/logo.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -984,7 +984,7 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Gerador de Recibos", None))
         self.actionQuit.setText(QCoreApplication.translate("MainWindow", u"Sair", None))
 #if QT_CONFIG(shortcut)
         self.actionQuit.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+Q", None))

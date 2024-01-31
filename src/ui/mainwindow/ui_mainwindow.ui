@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>976</width>
-    <height>922</height>
+    <height>920</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Gerador de Recibos</string>
   </property>
   <property name="windowIcon">
    <iconset resource="assets.qrc">
