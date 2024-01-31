@@ -1,0 +1,18 @@
+<RCC>
+  <qresource prefix="logo">
+    <file>assets/photo.png</file>
+  </qresource>
+  <qresource prefix="print">
+    <file>assets/preview-black-30.png</file>
+    <file>assets/preview-blue-30.png</file>
+    <file>assets/print-black-26.png</file>
+    <file>assets/print-blue-26.png</file>
+  </qresource>
+  <qresource prefix="padlock">
+    <file>assets/padlock-green.png</file>
+    <file>assets/padlock.png</file>
+  </qresource>
+  <qresource prefix="app">
+    <file>assets/logo.png</file>
+  </qresource>
+</RCC>

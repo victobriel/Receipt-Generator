@@ -1,0 +1,25 @@
+<RCC>
+  <qresource prefix="demos/documentviewer">
+    <file>images/copy@2x.png</file>
+    <file>images/document-open-recent.svgz</file>
+    <file>images/go-next.svgz</file>
+    <file>images/go-previous.svgz</file>
+    <file>images/help-about.svgz</file>
+    <file>images/magnifier.png</file>
+    <file>images/magnifier@2x.png</file>
+    <file>images/open.png</file>
+    <file>images/print2x.png</file>
+    <file>images/zoom-fit-best.png</file>
+    <file>images/zoom-fit-best@2x.png</file>
+    <file>images/zoom-fit-width.png</file>
+    <file>images/zoom-fit-width@2x.png</file>
+    <file>images/zoom-in.png</file>
+    <file>images/zoom-in@2x.png</file>
+    <file>images/zoom-original.png</file>
+    <file>images/zoom-original@2x.png</file>
+    <file>images/zoom-out.png</file>
+    <file>images/zoom-out@2x.png</file>
+    <file>images/zoom-previous.png</file>
+    <file>images/zoom-previous@2x.png</file>
+  </qresource>
+</RCC>
