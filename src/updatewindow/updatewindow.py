@@ -1,7 +1,6 @@
 from PySide6.QtWidgets import QDialog
-from PySide6.QtCore import Qt
 from ..ui.updatewindow.ui_updatewindow import Ui_UpdateWindow
-import os, requests, webbrowser as wb
+import os,requests,webbrowser as wb
 
 class UpdateWindow(QDialog):
     def __init__(self, parent) -> None:
@@ -9,21 +8,22 @@ class UpdateWindow(QDialog):
         self._parent = parent
         self.ui: Ui_UpdateWindow = Ui_UpdateWindow()
         self.ui.setupUi(self)
-        self.setWindowTitle('Procurando por atualizações...')
 
         self._disableDownload()
         # Signals
         self.ui.quit_btn.clicked.connect(self.close)
         self.ui.download_btn.clicked.connect(self._download)
-        self._startChecking()
 
     def closeEvent(self, event) -> None:
         # self._parent.setWindowFlags(Qt.WindowFlags())
         self._parent.show()
         event.accept()
 
-    def _startChecking(self) -> None:
+    def _checkForUpdate(self) -> None:
+        self.setWindowTitle('Procurando por atualizações...')
+        self._clearMessages()
         self._addMessage("Procurando por atualizações...")
+
         version: str = os.getenv('VERSION')
         self._addMessage(f'Versão atual: {version}')
         githubData: dict = requests.get('https://api.github.com/repos/victobriel/receipt-generator/releases/latest').json()
@@ -35,7 +35,7 @@ class UpdateWindow(QDialog):
             self._addMessage(_m)
             self._enableDownload()
         else:
-            self._addMessage('Nenhuma atualização disponível')
+            self._parent.statusBar().showMessage('Nenhuma atualização disponível', 5000)
             self.close()
 
     def _addMessage(self, message: str) -> None:
@@ -49,3 +49,6 @@ class UpdateWindow(QDialog):
 
     def _download(self) -> None:
         pass
+
+    def _clearMessages(self) -> None:
+        self.ui.messages_list.clear()

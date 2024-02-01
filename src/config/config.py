@@ -35,6 +35,3 @@ class Config:
     with open(self._path, "w") as file:
       json.dump(self._get_default_config(), file, indent=2)
       file.close()
-  
-  def _get_default_config(self) -> dict:
-    return {}

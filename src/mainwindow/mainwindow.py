@@ -3,17 +3,19 @@ from PySide6.QtWidgets import (QMainWindow,QTableWidgetItem,QFileDialog,
 from PySide6.QtGui import (QIcon,QResizeEvent)
 from PySide6.QtCore import (QDate,QDir,QFile,Qt,QCoreApplication)
 from PySide6.QtPrintSupport import (QPrinter, QPrintDialog)
+
+from shutil import copyfile
+import webbrowser as wb,requests
+from dotenv import load_dotenv
+
 from ..ui.mainwindow.ui_mainwindow import Ui_MainWindow
 from ..productslist.productslist import ProductsList
 from ..documentviewer.documentviewer import DocumentViewer
 from ..document.document import Document
 from ..utils.mask import Mask
-from shutil import copyfile
 from ..config.configData import ConfigData
 from ..config.configInterface import ConfigInterface
 from ..updatewindow.updatewindow import UpdateWindow
-import requests,webbrowser as wb
-from dotenv import load_dotenv
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None) -> None:
@@ -147,8 +149,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         if not hasattr(self, '_uw'):
             self._uw: UpdateWindow = UpdateWindow(self)
         self._uw.show()
-        while self._uw.exec() == QDialog.Accepted and self._uw.isVisible():
-            pass
+        self._uw._checkForUpdate()
 
     def resizeEvent(self, event: QResizeEvent) -> None:
         size = self.ui.prod_list.width()
@@ -400,7 +401,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         toolTipText: str = 'Remover logo'
         self.ui.logo_btn.setIcon(QIcon(dest))
-        self.ui.logo_group.setToolTip(toolTipText)
+        self.ui.verticalGroupBox_0_0_0_0.setToolTip(toolTipText)
         self.ui.logo_load_btn.setText(toolTipText)
         return True
 
