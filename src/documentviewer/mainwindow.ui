@@ -63,7 +63,7 @@
    </property>
    <property name="icon">
     <iconset theme="document-print" resource="documentviewer.qrc">
-     <normaloff>:/demos/documentviewer/images/print2x.png</normaloff>:/demos/documentviewer/images/print2x.png</iconset>
+     <normaloff>:/demos/documentviewer/images/print.png</normaloff>:/demos/documentviewer/images/print.png</iconset>
    </property>
    <property name="text">
     <string>Print</string>

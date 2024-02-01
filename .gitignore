@@ -4,3 +4,8 @@ __pycache__/
 config-data.json
 config-interface.json
 venv/
+# Distribution / packaging
+build/
+dist/
+data/
+images/

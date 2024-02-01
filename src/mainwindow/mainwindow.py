@@ -22,7 +22,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-
         # .env
         load_dotenv()
         # Config
@@ -380,26 +379,29 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         file: QFile = QFile(fileName)
         if not file.exists():
             nf: str = QDir.toNativeSeparators(fileName)
-            self.statusBar().showMessage(f"Arquivo {nf} não pode ser aberto")
+            self.statusBar().showMessage(f"Arquivo {nf} não pode ser aberto.", timeout=3000)
             return False
 
-        dest = QDir().currentPath() + '/images/logo.png'
+        currentPath: str = QDir().currentPath()
+        dest: str = currentPath + "/images/logo.png"
+
+        if not QDir(currentPath + "/images").exists():
+            QDir().mkdir(currentPath + "/images")
 
         if (fileName != dest):
             try:
                 copyfile(fileName, dest)
             except:
+                nf: str = QDir.toNativeSeparators(fileName)
+                self.statusBar().showMessage(f"Problema ao copiar arquivo {nf}. Consulte um adminitrador.", timeout=3000)
                 return False
-
-        if not QFile(dest).exists():
-            return False
 
         if not self._document.hasLogo():
             self._document.createLogo(dest)
         else:
             self._document.logo.path = dest
 
-        toolTipText: str = 'Remover logo'
+        toolTipText: str = "Remover logo"
         self.ui.logo_btn.setIcon(QIcon(dest))
         self.ui.verticalGroupBox_0_0_0_0.setToolTip(toolTipText)
         self.ui.logo_load_btn.setText(toolTipText)

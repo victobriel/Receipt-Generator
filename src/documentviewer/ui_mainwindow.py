@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainwindowTCJBEI.ui'
+## Form generated from reading UI file 'mainwindowQmsrtO.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -33,7 +33,7 @@ class Ui_MainWindow(object):
         if QIcon.hasThemeIcon(iconThemeName):
             icon = QIcon.fromTheme(iconThemeName)
         else:
-            icon.addFile(u":/demos/documentviewer/images/print2x.png", QSize(), QIcon.Normal, QIcon.Off)
+            icon.addFile(u":/demos/documentviewer/images/print.png", QSize(), QIcon.Normal, QIcon.Off)
 
         self.actionPrint.setIcon(icon)
         self.actionQuit = QAction(MainWindow)
