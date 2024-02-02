@@ -6,7 +6,7 @@ from PySide6.QtPrintSupport import (QPrinter, QPrintDialog)
 
 from shutil import copyfile
 import webbrowser as wb,requests
-from dotenv import load_dotenv
+import os,subprocess,sys
 
 from ..ui.mainwindow.ui_mainwindow import Ui_MainWindow
 from ..productslist.productslist import ProductsList
@@ -22,8 +22,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        # .env
-        load_dotenv()
         # Config
         self._config: ConfigData = ConfigData()
         self._configApp: ConfigInterface = ConfigInterface()
@@ -36,11 +34,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Config
         if self.ui.save_data_ckb.isChecked():
             self._loadConfig()
-
         self.ui.receipt_num_edit.setText(self._document.number)
         self._AUTONUMBER: str = self._document.number
         self._updateCountryComboBox()
-
         # Signals
         self.ui.comp_edit.textChanged.connect(
             lambda: self._onTextChanged(self.ui.comp_edit))
@@ -91,7 +87,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Actions
         self.ui.actionPreview.triggered.connect(self._onPreviewActionTriggered)
         self.ui.actionPrint.triggered.connect(self._onPrintActionTriggered)
-        self.ui.actionCheckForUpdates.triggered.connect(self._openUpdateDialog)
+        self.ui.actionCheckForUpdates.triggered.connect(
+            lambda: self._openUpdateDialog(True))
         self.ui.actionDocumentation.triggered.connect(
             lambda: wb.open('https://github.com/victobriel/receipt-generator'))
         self.ui.country_combo.setCurrentIndex(0)
@@ -144,11 +141,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.ui.save_data_ckb.setChecked(self._configApp.get('saveData'))
 
-    def _openUpdateDialog(self) -> None:
-        if not hasattr(self, '_uw'):
+    def _openUpdateDialog(self, freeze=False) -> None:
+        if not hasattr(self, 'uw'):
             self._uw: UpdateWindow = UpdateWindow(self)
-        self._uw.show()
-        self._uw._checkForUpdate()
+            self._uw.appDownloaded.connect(self._install)
+        self._uw.checkForUpdate(freeze)
 
     def resizeEvent(self, event: QResizeEvent) -> None:
         size = self.ui.prod_list.width()
@@ -279,7 +276,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def _onPreviewActionTriggered(self) -> None:
         self._document.render()
-        self._dw: DocumentViewer = DocumentViewer(self)
+        if not hasattr(self, '_dw'):
+            self._dw: DocumentViewer = DocumentViewer(self)
         self._dw.show()
         self._dw.openFile(self._document.fileName)
 
@@ -498,3 +496,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def saveNumber(self, number: str) -> None:
         self._configApp.set('lastNumber', number)
+
+    def _install(self, file) -> None:
+        currentPath: str = os.path.abspath(os.getcwd())
+        installer: str = os.path.join(currentPath, 'plugins', 'installer', 'installer.exe')
+        pid: str = str(os.getpid())
+        command: list = [installer, pid, file, currentPath, "/c", "runas", "/user:administrator", "regedit"]
+        # command = [installer, pid, file, currentPath]
+        subprocess.Popen(command,
+                        stdin=subprocess.PIPE,
+                        stdout=subprocess.PIPE,
+                        stderr=subprocess.STDOUT,
+                        close_fds=True)
+        sys.exit()

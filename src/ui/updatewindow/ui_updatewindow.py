@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ui_updatewindowIsiIhE.ui'
+## Form generated from reading UI file 'ui_updatewindowqthgfc.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -16,15 +16,16 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractItemView, QApplication, QDialog, QGroupBox,
-    QHBoxLayout, QListWidget, QListWidgetItem, QPushButton,
-    QSizePolicy, QSpacerItem, QVBoxLayout, QWidget)
+    QHBoxLayout, QListWidget, QListWidgetItem, QProgressBar,
+    QPushButton, QSizePolicy, QSpacerItem, QVBoxLayout,
+    QWidget)
 from .assets_rc import *
 
 class Ui_UpdateWindow(object):
     def setupUi(self, UpdateWindow):
         if not UpdateWindow.objectName():
             UpdateWindow.setObjectName(u"UpdateWindow")
-        UpdateWindow.resize(274, 171)
+        UpdateWindow.resize(273, 168)
         icon = QIcon()
         icon.addFile(u":/logo/assets/logo.png", QSize(), QIcon.Normal, QIcon.Off)
         UpdateWindow.setWindowIcon(icon)
@@ -62,6 +63,10 @@ class Ui_UpdateWindow(object):
         self.verticalLayout = QVBoxLayout(UpdateWindow)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.messages_list = QListWidget(UpdateWindow)
+        QListWidgetItem(self.messages_list)
+        QListWidgetItem(self.messages_list)
+        QListWidgetItem(self.messages_list)
+        QListWidgetItem(self.messages_list)
         self.messages_list.setObjectName(u"messages_list")
         self.messages_list.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
         self.messages_list.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
@@ -70,6 +75,15 @@ class Ui_UpdateWindow(object):
         self.messages_list.setSelectionMode(QAbstractItemView.NoSelection)
 
         self.verticalLayout.addWidget(self.messages_list)
+
+        self.updateProgressBar = QProgressBar(UpdateWindow)
+        self.updateProgressBar.setObjectName(u"updateProgressBar")
+        self.updateProgressBar.setMinimumSize(QSize(0, 25))
+        self.updateProgressBar.setMaximumSize(QSize(16777215, 25))
+        self.updateProgressBar.setValue(2)
+        self.updateProgressBar.setTextVisible(False)
+
+        self.verticalLayout.addWidget(self.updateProgressBar)
 
         self.groupBox = QGroupBox(UpdateWindow)
         self.groupBox.setObjectName(u"groupBox")
@@ -105,7 +119,20 @@ class Ui_UpdateWindow(object):
     # setupUi
 
     def retranslateUi(self, UpdateWindow):
-        UpdateWindow.setWindowTitle(QCoreApplication.translate("UpdateWindow", u"Gerador de Recibos", None))
+        UpdateWindow.setWindowTitle(QCoreApplication.translate("UpdateWindow", u"Procurando por atualiza\u00e7\u00f5es...", None))
+
+        __sortingEnabled = self.messages_list.isSortingEnabled()
+        self.messages_list.setSortingEnabled(False)
+        ___qlistwidgetitem = self.messages_list.item(0)
+        ___qlistwidgetitem.setText(QCoreApplication.translate("UpdateWindow", u"1", None));
+        ___qlistwidgetitem1 = self.messages_list.item(1)
+        ___qlistwidgetitem1.setText(QCoreApplication.translate("UpdateWindow", u"2", None));
+        ___qlistwidgetitem2 = self.messages_list.item(2)
+        ___qlistwidgetitem2.setText(QCoreApplication.translate("UpdateWindow", u"3", None));
+        ___qlistwidgetitem3 = self.messages_list.item(3)
+        ___qlistwidgetitem3.setText(QCoreApplication.translate("UpdateWindow", u"4", None));
+        self.messages_list.setSortingEnabled(__sortingEnabled)
+
         self.groupBox.setTitle("")
         self.download_btn.setText(QCoreApplication.translate("UpdateWindow", u"Baixar", None))
         self.quit_btn.setText(QCoreApplication.translate("UpdateWindow", u"Sair", None))

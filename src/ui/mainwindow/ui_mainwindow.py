@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ui_mainwindowJIKUHK.ui'
+## Form generated from reading UI file 'ui_mainwindowKisrfw.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(976, 920)
+        MainWindow.resize(976, 922)
         icon = QIcon()
         icon.addFile(u":/app/assets/logo.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -54,7 +54,7 @@ class Ui_MainWindow(object):
 "}\n"
 "QPushButton {\n"
 "color:#fff;\n"
-"background-color:#303440;\n"
+"background-color:#10191c;\n"
 "border:1px solid #616877;\n"
 "}\n"
 "QPushButton:hover{\n"

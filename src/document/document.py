@@ -177,21 +177,21 @@ class Document(QObject):
 
     self._parent.statusBar().showMessage(f"Salvando recibo em {dir}")
 
-    inPx = self._inPx
+    m = self._inPx
     try:
       pdfmetrics.registerFont(TTFont('Roboto-Bold', currentPath + "/fonts/Roboto-Bold.ttf"))
       pdfmetrics.registerFont(TTFont('Roboto-Italic', currentPath + "/fonts/Roboto-Italic.ttf"))
       pdfmetrics.registerFont(TTFont('Roboto-Light', currentPath + "/fonts/Roboto-Light.ttf"))
       pdfmetrics.registerFont(TTFont('Roboto', currentPath + "/fonts/Roboto-Regular.ttf"))
 
-      c: canvas.Canvas = canvas.Canvas(dir, pagesize=A4, bottomup=0)
+      c: canvas.Canvas = canvas.Canvas(dir, pagesize=A4, bottomup=0) # widthMin=0point, widthMax=595point, heightMin=0point, heightMax=842point
 
       c.translate(10, 40)
       c.scale(1, -1)
 
       # Logo
       if self.hasLogo():
-        c.drawImage(self._logo.path, inPx(30), inPx(-80), width=inPx(80), height=inPx(80))
+        c.drawImage(self._logo.path, m(30), m(-80), width=m(80), height=m(80))
 
       c.scale(1, -1)
       c.translate(-10, -40)
@@ -199,14 +199,14 @@ class Document(QObject):
       y: int = 70
       c.setFont("Roboto-Bold", 30)
 
-      c.drawCentredString(inPx(350), inPx(y), "RECIBO")
+      c.drawCentredString(m(350), m(y), "RECIBO")
       y += 60
 
       # Company
       c.setFont("Roboto", 18)
       companyName: str = self._company
       if companyName != "":
-        c.drawString(inPx(35), inPx(y), companyName)
+        c.drawString(m(35), m(y), companyName)
         y += 15
 
       # Beneficiary
@@ -214,10 +214,10 @@ class Document(QObject):
       benefName: str = self._beneficiary["name"]
       if benefName == "":
         c.setFont("Roboto-Italic", 12)
-        c.drawString(inPx(35), inPx(y), "Beneficiário: Não informado")
+        c.drawString(m(35), m(y), "Beneficiário: Não informado")
         c.setFont("Roboto", 12)
       else:
-        c.drawString(inPx(35), inPx(y), "Beneficiário: {0}".format(benefName))
+        c.drawString(m(35), m(y), "Beneficiário: {0}".format(benefName))
       y += 15
 
       benefStreet: str = self._beneficiary["address"]["street"]
@@ -230,10 +230,10 @@ class Document(QObject):
               or benefNumber == ""
                 or benefNeighborhood == ""):
         c.setFont("Roboto-Italic", 12)
-        c.drawString(inPx(35), inPx(y), "Endereço: Não informado")
+        c.drawString(m(35), m(y), "Endereço: Não informado")
         c.setFont("Roboto", 12)
       else:
-        c.drawString(inPx(35), inPx(y), f'Endereço: {benefStreet}, {benefNumber} - bairro {benefNeighborhood} - {benefCep}')
+        c.drawString(m(35), m(y), f'Endereço: {benefStreet}, {benefNumber} - bairro {benefNeighborhood} - {benefCep}')
       y += 15
 
       benefDistrict: str = self._beneficiary["address"]["district"]
@@ -243,138 +243,134 @@ class Document(QObject):
       if (benefDistrict != ""
             and benefCity != ""
               and benefCountry != ""):
-        c.drawString(inPx(35), inPx(y), f'{benefCity} - {benefDistrict} - {benefCountry}')
+        c.drawString(m(35), m(y), f'{benefCity} - {benefDistrict} - {benefCountry}')
         y += 15
 
       benefPhone: str = self._beneficiary["phone"]
       if benefPhone == "":
         c.setFont("Roboto-Italic", 12)
-        c.drawString(inPx(35), inPx(y), "Fone: Não informado")
+        c.drawString(m(35), m(y), "Fone: Não informado")
         c.setFont("Roboto", 12)
       else:
-        c.drawString(inPx(35), inPx(y), f'Fone: {benefPhone}')
+        c.drawString(m(35), m(y), f'Fone: {benefPhone}')
       y += 10
 
-      c.line(inPx(35), inPx(y), inPx(410), inPx(y))
+      c.line(m(35), m(y), m(410), m(y))
       y += 15
 
       # Client
       c.setFont("Roboto", 14)
-      c.drawString(inPx(35), inPx(y), "Cliente:")
+      c.drawString(m(35), m(y), "Cliente:")
       y += 15
 
       c.setFont("Roboto", 12)
       payerName: str = self._payer["name"]
       if payerName == "":
         c.setFont("Roboto-Italic", 12)
-        c.drawString(inPx(35), inPx(y), "Nome: Não informado")
+        c.drawString(m(35), m(y), "Nome: Não informado")
         c.setFont("Roboto", 12)
       else:
-        c.drawString(inPx(35), inPx(y), payerName)
+        c.drawString(m(35), m(y), payerName)
       y += 15
 
       payerCpfCnpj: str = self._payer["cpf/cnpj"]
       if payerCpfCnpj != "":
-        c.drawString(inPx(35), inPx(y), "CPF/CNPJ: {0}".format(payerCpfCnpj))
+        c.drawString(m(35), m(y), "CPF/CNPJ: {0}".format(payerCpfCnpj))
       else:
         c.setFont("Roboto-Italic", 12)
-        c.drawString(inPx(35), inPx(y), "CPF/CNPJ: Não informado")
+        c.drawString(m(35), m(y), "CPF/CNPJ: Não informado")
         c.setFont("Roboto", 12)
       y += 15
 
       payerPhone: str = self._payer["phone"]
       if payerPhone == "":
         c.setFont("Roboto-Italic", 12)
-        c.drawString(inPx(35), inPx(y), "Telefone: Não informado")
+        c.drawString(m(35), m(y), "Telefone: Não informado")
         c.setFont("Roboto", 12)
       else:
-        c.drawString(inPx(35), inPx(y), "Telefone: {0}".format(payerPhone))
+        c.drawString(m(35), m(y), "Telefone: {0}".format(payerPhone))
       y += 10
 
-      c.line(inPx(35), inPx(y), inPx(410), inPx(y))
+      c.line(m(35), m(y), m(410), m(y))
       y += 15
 
       c.setFont("Roboto", 14)
-      c.drawString(inPx(35), inPx(y), "Recibo #{0}".format(self._number))
+      c.drawString(m(35), m(y), "Recibo #{0}".format(self._number))
       y += 15
 
-      c.rect(inPx(35), inPx(y), inPx(375), inPx(20), fill=1)
+      c.rect(m(35), m(y), m(375), m(20), fill=1)
       y += 12
       c.setFont("Roboto-Bold", 11)
       c.setFillColorRGB(1, 1, 1)
-      c.drawString(inPx(40), inPx(y), "Descrição")
-      c.drawString(inPx(310),inPx(y), "Quant.")
-      c.drawString(inPx(370),inPx(y), "Valor")
+      c.drawString(m(40), m(y), "Descrição")
+      c.drawString(m(310),m(y), "Quant.")
+      c.drawString(m(370),m(y), "Valor")
       y += 22
 
       c.setFont("Roboto", 11)
       c.setFillColorRGB(0, 0, 0)
       if self._products == []:
-        c.drawString(inPx(38), inPx(y), "Não há produtos")
+        c.drawString(m(38), m(y), "Não há produtos")
         y += 10
-        c.line(inPx(35), inPx(y), inPx(410), inPx(y))
+        c.line(m(35), m(y), m(410), m(y))
         y += 15
       else:
         for product in self._products:
-          c.drawString(inPx(40), inPx(y), product["description"])
-          c.drawString(inPx(310),inPx(y), product["quantity"])
-          c.drawString(inPx(370),inPx(y), self._parent.applyMask(product["price"], 'money'))
+          c.drawString(m(40), m(y), product["description"])
+          c.drawString(m(310),m(y), product["quantity"])
+          c.drawString(m(370),m(y), self._parent.applyMask(product["price"], 'money'))
           y += 5
-          c.line(inPx(35), inPx(y), inPx(410), inPx(y))
+          c.line(m(35), m(y), m(410), m(y))
           y += 15
 
       c.setFont("Roboto-Bold", 11)
-      c.drawRightString(inPx(400), inPx(y), "TOTAL: {0} {1}".format(self._currency, self._parent.applyMask(str(self._value), 'money')))
+      c.drawRightString(m(400), m(y), "TOTAL: {0} {1}".format(self._currency, self._parent.applyMask(str(self._value), 'money')))
       y += 15
 
       c.setFont("Roboto", 11)
-      c.drawString(inPx(35), inPx(y), "Observações:")
+      c.drawString(m(35), m(y), "Observações:")
       y += 15
 
       c.setFont("Roboto-Italic", 11)
-      c.drawString(inPx(35), inPx(y), self._obs)
+      c.drawString(m(35), m(y), self._obs)
       y += 10
 
-      c.line(inPx(35), inPx(y), inPx(410), inPx(y))
+      c.line(m(35), m(y), m(410), m(y))
       y += 15
 
       c.setFont("Roboto", 11)
       if (benefDistrict != ""
             and benefCity != ""):
-        c.drawCentredString(inPx(225), inPx(y), "{0}-{1}, {2}".format(benefCity, benefDistrict, self._date.toString("dd/MM/yyyy")))
+        c.drawCentredString(m(225), m(y), "{0}-{1}, {2}".format(benefCity, benefDistrict, self._date.toString("dd/MM/yyyy")))
       else:
         c.setFont("Roboto-Italic", 11)
-        c.drawCentredString(inPx(225), inPx(y), "Endereço não informado, {0}".format(self._date.toString("dd/MM/yyyy")))
+        c.drawCentredString(m(225), m(y), "Endereço não informado, {0}".format(self._date.toString("dd/MM/yyyy")))
         c.setFont("Roboto", 11)
       y += 30
 
-      c.line(inPx(150), inPx(y), inPx(300), inPx(y))
+      c.line(m(150), m(y), m(300), m(y))
       y += 10
 
       c.setFont("Roboto", 11)
       if benefName == "":
         c.setFont("Roboto-Italic", 11)
-        c.drawCentredString(inPx(225), inPx(y), "Beneficiário não informado")
+        c.drawCentredString(m(225), m(y), "Beneficiário não informado")
         c.setFont("Roboto", 11)
       else:
-        c.drawCentredString(inPx(225), inPx(y), self._beneficiary["name"])
+        c.drawCentredString(m(225), m(y), self._beneficiary["name"])
       y += 10
 
       c.setFont("Roboto-Italic", 11)
-      c.drawCentredString(inPx(225), inPx(y), self._beneficiary["cpf/cnpj"])
+      c.drawCentredString(m(225), m(y), self._beneficiary["cpf/cnpj"])
 
-      y = inPx(20)
+      y = m(20)
       c.setFont("Roboto", 11)
-      c.drawString(inPx(35), inPx(y), "Recibo #{0}".format(self._number))
+      c.drawString(m(35), m(y), "Recibo #{0}".format(self._number))
 
-      y = inPx(470)
+      y = m(470)
       c.setFont("Roboto-Light", 9)
-      c.drawRightString(inPx(440), inPx(y), "Esta folha é parte integrante do recibo #{0}".format(self._number))
+      c.drawRightString(m(440), m(y), "Esta folha é parte integrante do recibo #{0}".format(self._number))
 
-      # if not self._parent.ui.actionRemoveMessage.isChecked():
-      #   MESSAGE = "Gerado por software livre desenvolvido por {1}".format(QDate.currentDate().toString("dd/MM/yyyy"), "https://github.com/victobriel")
-      #   c.setFont("Roboto", 7)
-      #   c.drawString(inPx(10), inPx(y), MESSAGE)
       c.showPage()
       c.save()
     except Exception as e:

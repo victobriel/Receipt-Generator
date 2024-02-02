@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>976</width>
-    <height>920</height>
+    <height>922</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -40,7 +40,7 @@ padding-top: 15px;
 }
 QPushButton {
 color:#fff;
-background-color:#303440;
+background-color:#10191c;
 border:1px solid #616877;
 }
 QPushButton:hover{
