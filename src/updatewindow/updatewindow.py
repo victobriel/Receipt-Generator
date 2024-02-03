@@ -28,17 +28,17 @@ class UpdateWindow(QDialog):
         update: bool = self._updater.check()
         if update:
             self.show()
+            self.resize(360, 320)
             self.setWindowTitle('Atualização disponível')
             _m: str = 'Baixe a versão mais recente do aplicativo'
             self.addMessage(_m)
-            self.resize(360, 320)
             self._enableDownload()
         else:
             if not freeze:
-                self.resize(360, 320)
                 self.close()
             else:
                 self.show()
+                self.resize(360, 320)
                 self.setWindowTitle('Você está atualizado')
                 _m: str = 'Você já está utilizando a versão mais recente do aplicativo'
                 self.addMessage(_m)
