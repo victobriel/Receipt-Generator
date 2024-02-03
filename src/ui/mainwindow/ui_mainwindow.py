@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ui_mainwindowKisrfw.ui'
+## Form generated from reading UI file 'ui_mainwindowVatrCj.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(976, 922)
+        MainWindow.resize(976, 931)
         icon = QIcon()
         icon.addFile(u":/app/assets/logo.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -527,6 +527,17 @@ class Ui_MainWindow(object):
         self.verticalLayout_12 = QVBoxLayout(self.verticalGroupBox_0_0_0_0)
         self.verticalLayout_12.setSpacing(0)
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.label = QLabel(self.verticalGroupBox_0_0_0_0)
+        self.label.setObjectName(u"label")
+        font3 = QFont()
+        font3.setFamilies([u"Roboto"])
+        font3.setPointSize(8)
+        self.label.setFont(font3)
+        self.label.setStyleSheet(u"color:#ccc;")
+        self.label.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_12.addWidget(self.label)
+
         self.logo_btn = QPushButton(self.verticalGroupBox_0_0_0_0)
         self.logo_btn.setObjectName(u"logo_btn")
         self.logo_btn.setMinimumSize(QSize(0, 80))
@@ -1035,6 +1046,7 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(tooltip)
         self.verticalGroupBox_0_0_0_0.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Carregar logo</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
+        self.label.setText(QCoreApplication.translate("MainWindow", u"512x512 pixels", None))
         self.logo_load_btn.setText(QCoreApplication.translate("MainWindow", u"Carregar logo", None))
         self.verticalGroupBox_0_1.setTitle(QCoreApplication.translate("MainWindow", u"Dados do pagador", None))
         self.name_label_0.setText(QCoreApplication.translate("MainWindow", u"Nome: *", None))

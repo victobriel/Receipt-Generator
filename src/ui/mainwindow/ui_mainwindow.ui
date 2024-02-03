@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>976</width>
-    <height>922</height>
+    <height>931</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -817,6 +817,25 @@ border:none;
                <property name="spacing">
                 <number>0</number>
                </property>
+               <item>
+                <widget class="QLabel" name="label">
+                 <property name="font">
+                  <font>
+                   <family>Roboto</family>
+                   <pointsize>8</pointsize>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color:#ccc;</string>
+                 </property>
+                 <property name="text">
+                  <string>512x512 pixels</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
                <item>
                 <widget class="QPushButton" name="logo_btn">
                  <property name="minimumSize">
