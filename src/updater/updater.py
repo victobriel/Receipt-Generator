@@ -1,9 +1,10 @@
-from PySide6.QtCore import QObject, Signal
+from PySide6.QtCore import (QObject,Signal)
 import os,requests
-from ..version import __version__
+from ..version import version
 
 class Updater(QObject):
 
+  addMessage = Signal(str)
   setTotalProgress = Signal(int)
   setCurrentProgress = Signal(int, bool)
 
@@ -14,22 +15,37 @@ class Updater(QObject):
     self._data: dict = None
 
   def check(self) -> bool:
-      self._parent.addMessage("Procurando por atualizações...")
-      self._parent.addMessage(f'Versão atual: {__version__}')
-      self.setCurrentProgress.emit(0, False)
-      url: str = 'https://api.github.com/repos/victobriel/receipt-generator/releases/latest'
-      try:
-        self._data: dict = requests.get(url).json()
-      except requests.exceptions.RequestException as e:
-          self._parent.addMessage(f'Erro ao buscar atualizações: {e}')
-          return False
-      githubVersion: str = self._data['tag_name'].replace('v', '')
-      self._parent.addMessage(f'Versão mais recente: {githubVersion}')
-      self.setCurrentProgress.emit(0, True)
-      if __version__ != githubVersion:
-          return True
-      else:
-          return False
+    __version__ = version # program version
+
+    self.addMessage.emit("Procurando por atualizações...")
+    self.addMessage.emit(f'Versão atual: {__version__}')
+
+    fileVersion: str = os.path.join(os.getcwd(), 'version.txt')
+    dataFileVersion: str = None
+    if os.path.exists(fileVersion):
+      with open('update.txt', 'r') as file:
+        dataFileVersion = file.read()
+      if dataFileVersion == __version__:
+        self.addMessage.emit('Já está na versão mais recente')
+        try:
+          os.remove('update.txt')
+        except FileNotFoundError:
+          pass
+        return False
+
+    url: str = 'https://api.github.com/repos/victobriel/receipt-generator/releases/latest'
+    try:
+      self._data: dict = requests.get(url).json()
+    except requests.exceptions.RequestException as e:
+        self.addMessage.emit(f'Erro ao buscar atualizações: {e}')
+        return False
+    githubVersion: str = self._data['tag_name'].replace('v', '')
+    self.addMessage.emit(f'Versão mais recente: {githubVersion}')
+    self.setCurrentProgress.emit(0, True)
+    if __version__ != githubVersion:
+        return True
+    else:
+        return False
 
   def download(self) -> bool:
     url: str = self._data['assets'][0]['browser_download_url']
@@ -37,7 +53,7 @@ class Updater(QObject):
       request = requests.get(url, stream=True)
       request.raise_for_status()
     except requests.exceptions.RequestException as e:
-      self._parent.addMessage(f'Erro ao baixar atualização: {e}')
+      self.addMessage.emit(f'Erro ao baixar atualização: {e}')
       return False
 
     fileName: str = url.split('/')[-1]

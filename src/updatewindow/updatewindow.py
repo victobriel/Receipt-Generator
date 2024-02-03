@@ -20,6 +20,7 @@ class UpdateWindow(QDialog):
         self.ui.download_btn.clicked.connect(self._download)
         self._updater.setTotalProgress.connect(self.setProgressBarMax)
         self._updater.setCurrentProgress.connect(self.setProgressBar)
+        self._updater.addMessage.connect(self.addMessage)
 
     def checkForUpdate(self, freeze: bool) -> None:
         self._clearMessages()
@@ -33,12 +34,14 @@ class UpdateWindow(QDialog):
             self.resize(360, 320)
             self._enableDownload()
         else:
-            self.setWindowTitle('Você está atualizado')
-            _m: str = 'Você já está utilizando a versão mais recente do aplicativo'
-            self.addMessage(_m)
             if not freeze:
                 self.resize(360, 320)
                 self.close()
+            else:
+                self.show()
+                self.setWindowTitle('Você está atualizado')
+                _m: str = 'Você já está utilizando a versão mais recente do aplicativo'
+                self.addMessage(_m)
 
     def _download(self) -> None:
         self.setWindowTitle('Baixando atualização...')
