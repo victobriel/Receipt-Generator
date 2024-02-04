@@ -5,8 +5,8 @@ from PySide6.QtCore import (QDate,QDir,QFile,Qt,QCoreApplication)
 from PySide6.QtPrintSupport import (QPrinter, QPrintDialog)
 
 from shutil import copyfile
-import webbrowser as wb,requests
-import os,subprocess,sys
+import webbrowser as wb,requests,os,sys,ctypes
+from subprocess import Popen,CalledProcessError,PIPE,DETACHED_PROCESS,CREATE_NEW_PROCESS_GROUP
 
 from ..ui.mainwindow.ui_mainwindow import Ui_MainWindow
 from ..productslist.productslist import ProductsList
@@ -15,7 +15,6 @@ from ..document.document import Document
 from ..utils.mask import Mask
 from ..config.configData import ConfigData
 from ..config.configInterface import ConfigInterface
-from ..updatewindow.updatewindow import UpdateWindow
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None) -> None:
@@ -30,7 +29,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # UI
         self.__uiInit()
         # Check for updates
-        self._openUpdateDialog()
+        self._openUpdater(freeze=False)
         # Config
         if self.ui.save_data_ckb.isChecked():
             self._loadConfig()
@@ -87,8 +86,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Actions
         self.ui.actionPreview.triggered.connect(self._onPreviewActionTriggered)
         self.ui.actionPrint.triggered.connect(self._onPrintActionTriggered)
-        self.ui.actionCheckForUpdates.triggered.connect(
-            lambda: self._openUpdateDialog(True))
+        self.ui.actionCheckForUpdates.triggered.connect(self._openUpdater)
         self.ui.actionDocumentation.triggered.connect(
             lambda: wb.open('https://github.com/victobriel/receipt-generator'))
         self.ui.country_combo.setCurrentIndex(0)
@@ -141,11 +139,31 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.ui.save_data_ckb.setChecked(self._configApp.get('saveData'))
 
-    def _openUpdateDialog(self, freeze=False) -> None:
-        if not hasattr(self, 'uw'):
-            self._uw: UpdateWindow = UpdateWindow(self)
-            self._uw.appDownloaded.connect(self._install)
-        self._uw.checkForUpdate(freeze)
+    def isAdmin(self) -> bool:
+        try:
+            return ctypes.windll.shell32.IsUserAnAdmin()
+        except AttributeError:
+            return False
+
+    def _openUpdater(self, freeze = True) -> None:
+        current: str = os.path.abspath(os.getcwd())
+        updater: str = os.path.join(current, 'updater', 'updater.exe')
+        r_freeze: str = '--freeze' if freeze else ''
+        try:
+            PID: str = str(os.getpid())
+            command: list[str] = []
+            command = [updater, PID, r_freeze, 'runas', '/user:Administrator'] if not self.isAdmin() else [updater, PID, r_freeze]
+            Popen(command,
+                  creationflags=DETACHED_PROCESS | CREATE_NEW_PROCESS_GROUP,
+                  stdout=PIPE,
+                  stderr=PIPE,
+                  stdin=PIPE,
+                  close_fds=True)
+        except CalledProcessError as e:
+            print(e)
+            self.statusBar().showMessage(f'Erro ao abrir o atualizador: {e}', timeout=3000)
+        except:
+            self.statusBar().showMessage('Erro ao abrir o atualizador', timeout=3000)
 
     def resizeEvent(self, event: QResizeEvent) -> None:
         size = self.ui.prod_list.width()
@@ -496,16 +514,3 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def saveNumber(self, number: str) -> None:
         self._configApp.set('lastNumber', number)
-
-    def _install(self, file) -> None:
-        currentPath: str = os.path.abspath(os.getcwd())
-        installer: str = os.path.join(currentPath, 'plugins', 'installer', 'installer.exe')
-        pid: str = str(os.getpid())
-        command: list = [installer, pid, file, currentPath, "/c", "runas", "/user:administrator", "regedit"]
-        # command = [installer, pid, file, currentPath]
-        subprocess.Popen(command,
-                        stdin=subprocess.PIPE,
-                        stdout=subprocess.PIPE,
-                        stderr=subprocess.STDOUT,
-                        close_fds=True)
-        sys.exit()

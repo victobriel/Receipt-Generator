@@ -1,7 +1,7 @@
 from ..config.config import Config
 
 class ConfigData(Config):
-  def __init__(self, path="config-data.json") -> None:
+  def __init__(self, path="config/config-data.json") -> None:
     self._path: str = path
     super().__init__(self._path)
     self._config: dict = self._load_config()
