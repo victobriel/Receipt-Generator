@@ -5,7 +5,7 @@ from PySide6.QtCore import (QDate,QDir,QFile,Qt,QCoreApplication)
 from PySide6.QtPrintSupport import (QPrinter, QPrintDialog)
 
 from shutil import copyfile
-import webbrowser as wb,requests,os,sys,ctypes
+import webbrowser as wb,requests,os,ctypes
 from subprocess import Popen,CalledProcessError,PIPE,DETACHED_PROCESS,CREATE_NEW_PROCESS_GROUP
 
 from ..ui.mainwindow.ui_mainwindow import Ui_MainWindow
@@ -295,7 +295,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def _onPreviewActionTriggered(self) -> None:
         self._document.render()
         if not hasattr(self, '_dw'):
-            self._dw: DocumentViewer = DocumentViewer(self)
+            self._dw: DocumentViewer = DocumentViewer()
         self._dw.show()
         self._dw.openFile(self._document.fileName)
 
