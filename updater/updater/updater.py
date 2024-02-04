@@ -14,14 +14,20 @@ class Updater(QObject):
     self._filePath: str = None
     self._data: dict = None
     self._mainPath: str = str(Path().absolute())
-    # self._mainPath: str = str(Path().absolute().parents[0])
     self._appJsonPath: str = Path(self._mainPath).joinpath('app.json')
     logging.basicConfig(filename='log.log', level=logging.INFO)
+    logging.info(f'controll --PID {self._parent._pid}, --FREEZE {self._parent._freeze}')
 
   def check(self) -> bool:
     logging.info('Checking for updates')
     self.addMessage.emit("Procurando por atualizações...")
     try:
+      if not Path.exists(self._appJsonPath):
+        self._mainPath = str(Path().absolute().parents[0])
+        self._appJsonPath = Path(self._mainPath).joinpath('app.json')
+        if not Path.exists(self._appJsonPath):
+          logging.error(f'App.json not found')
+          return False
       with open(self._appJsonPath, 'r') as file:
         data = json.load(file)
       __version__ = data['version']

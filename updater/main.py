@@ -3,9 +3,8 @@ from PySide6.QtWidgets import QApplication
 from updatewindow.updatewindow import UpdateWindow
 
 if __name__ == "__main__":
-    pid = sys.argv[1]
-    freeze: bool = True if (sys.argv[2] == '--freeze') else False
     app: QApplication = QApplication(sys.argv)
-    window: UpdateWindow = UpdateWindow(pid=pid, freeze=freeze)
-    # window.show()
+    window: UpdateWindow = UpdateWindow(
+        pid = sys.argv[1] if len(sys.argv) > 1 else None,
+        freeze = False if (len(sys.argv) > 2 and sys.argv[2] == '--not-freeze') else True)
     app.exec()

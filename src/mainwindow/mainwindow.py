@@ -86,7 +86,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Actions
         self.ui.actionPreview.triggered.connect(self._onPreviewActionTriggered)
         self.ui.actionPrint.triggered.connect(self._onPrintActionTriggered)
-        self.ui.actionCheckForUpdates.triggered.connect(self._openUpdater)
+        self.ui.actionCheckForUpdates.triggered.connect(lambda: self._openUpdater(True))
         self.ui.actionDocumentation.triggered.connect(
             lambda: wb.open('https://github.com/victobriel/receipt-generator'))
         self.ui.country_combo.setCurrentIndex(0)
@@ -145,14 +145,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         except AttributeError:
             return False
 
-    def _openUpdater(self, freeze = True) -> None:
+    def _openUpdater(self, freeze: bool) -> None:
         current: str = os.path.abspath(os.getcwd())
         updater: str = os.path.join(current, 'updater', 'updater.exe')
-        r_freeze: str = '--freeze' if freeze else ''
+        rfreeze: str = '--not-freeze' if not freeze else ''
         try:
             PID: str = str(os.getpid())
             command: list[str] = []
-            command = [updater, PID, r_freeze, 'runas', '/user:Administrator'] if not self.isAdmin() else [updater, PID, r_freeze]
+            command = [updater, PID, rfreeze, 'runas', '/user:Administrator'] if not self.isAdmin() else [updater, PID, rfreeze]
             Popen(command,
                   creationflags=DETACHED_PROCESS | CREATE_NEW_PROCESS_GROUP,
                   stdout=PIPE,

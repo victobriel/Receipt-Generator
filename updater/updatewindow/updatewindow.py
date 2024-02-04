@@ -6,8 +6,8 @@ import sys,psutil
 class UpdateWindow(QMainWindow):
     def __init__(self, pid: str, freeze: bool, parent=None) -> None:
         super().__init__(parent)
-        self._freeze: bool = freeze
         self._pid: str = pid
+        self._freeze: bool = freeze
         # UI
         self.ui: Ui_UpdateWindow = Ui_UpdateWindow()
         self.ui.setupUi(self)
@@ -30,13 +30,13 @@ class UpdateWindow(QMainWindow):
         update: bool = self._updater.check()
         if not update:
             if not self._freeze:
-                return sys.exit()
-            self.show()
-            self.resize(360, 320)
-            self.setWindowTitle('Nenhuma atualização disponível')
-            _m: str = 'Você está atualizado.'
-            self.addMessage(_m)
-            self._updater.runApp()
+                sys.exit()
+            else:
+                self.show()
+                self.resize(360, 320)
+                self.setWindowTitle('Nenhuma atualização disponível')
+                _m: str = 'Você está atualizado.'
+                self.addMessage(_m)
         else:
             self.show()
             self.resize(360, 320)
@@ -54,7 +54,8 @@ class UpdateWindow(QMainWindow):
             self.addMessage('Atualização baixada com sucesso')
             self._disableDownload()
             self.addMessage('Fechando Receipt Generator...')
-            while self._checkPID():
+            while ((self._pid != None) and
+                    (self._checkPID())):
                 pass
             self._install()
         else:
