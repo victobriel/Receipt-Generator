@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>976</width>
-    <height>803</height>
+    <width>994</width>
+    <height>805</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -129,6 +129,12 @@ padding-top:0;
        </property>
        <item>
         <widget class="QGroupBox" name="groupBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="styleSheet">
           <string notr="true">QGroupBox {
 padding-top:0;
@@ -175,7 +181,7 @@ padding-top:0;
                    <string notr="true"/>
                   </property>
                   <property name="placeholderText">
-                   <string>Informe o nome da empresa, se houver</string>
+                   <string>Informe o nome da empresa</string>
                   </property>
                   <property name="clearButtonEnabled">
                    <bool>true</bool>
@@ -270,6 +276,12 @@ padding-top:0;
           </item>
           <item>
            <widget class="QGroupBox" name="verticalGroupBox_0_0_0_0">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="minimumSize">
              <size>
               <width>180</width>
@@ -340,7 +352,7 @@ border:none;
                </property>
                <property name="iconSize">
                 <size>
-                 <width>120</width>
+                 <width>60</width>
                  <height>60</height>
                 </size>
                </property>
@@ -376,6 +388,12 @@ border-top:none;</string>
        </item>
        <item>
         <widget class="QGroupBox" name="verticalGroupBox_0_1">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="title">
           <string>Dados do pagador</string>
          </property>
@@ -524,6 +542,12 @@ border-top:none;</string>
        </item>
        <item>
         <widget class="QGroupBox" name="verticalGroupBox_0_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="title">
           <string>Dados do beneficiário</string>
          </property>
@@ -1536,7 +1560,7 @@ border:none;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>976</width>
+     <width>994</width>
      <height>20</height>
     </rect>
    </property>
@@ -1620,6 +1644,9 @@ border:none;
   </action>
  </widget>
  <tabstops>
+  <tabstop>comp_edit</tabstop>
+  <tabstop>date_edit</tabstop>
+  <tabstop>receipt_num_edit</tabstop>
   <tabstop>logo_btn</tabstop>
   <tabstop>logo_load_btn</tabstop>
   <tabstop>payer_nam_edit</tabstop>
@@ -1634,9 +1661,11 @@ border:none;
   <tabstop>benef_num_edit</tabstop>
   <tabstop>benef_nei_edit</tabstop>
   <tabstop>benef_pho_edit</tabstop>
+  <tabstop>country_combo</tabstop>
   <tabstop>rem_serv_btn</tabstop>
   <tabstop>prod_desc_edit</tabstop>
   <tabstop>prod_valu_edit</tabstop>
+  <tabstop>prod_quant_spin</tabstop>
   <tabstop>add_serv_btn</tabstop>
   <tabstop>currency_line_edit</tabstop>
   <tabstop>currency_btn</tabstop>
@@ -1644,7 +1673,6 @@ border:none;
   <tabstop>save_data_ckb</tabstop>
   <tabstop>print_btn</tabstop>
   <tabstop>preview_btn</tabstop>
-  <tabstop>prod_quant_spin</tabstop>
  </tabstops>
  <resources>
   <include location="assets.qrc"/>

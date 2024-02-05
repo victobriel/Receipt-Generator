@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import (QMainWindow,QTableWidgetItem,QFileDialog,
                                QDialog,QSizePolicy,QAbstractItemView)
 from PySide6.QtGui import (QIcon,QResizeEvent)
-from PySide6.QtCore import (QDate,QDir,QFile,Qt,QCoreApplication)
+from PySide6.QtCore import (QDate,QDir,QFile,Qt,QCoreApplication,QSize)
 from PySide6.QtPrintSupport import (QPrinter, QPrintDialog)
 
 from shutil import copyfile
@@ -131,7 +131,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         ___qtablewidgetitem2 = self.ui.prod_list.horizontalHeaderItem(2)
         ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"Valor", None))
 
-        self.ui.prod_list.setColumnWidth(0, 281)
+        self.ui.prod_list.setColumnWidth(0, 293)
         self.ui.prod_list.setColumnWidth(1, 50)
         self.ui.prod_list.setColumnWidth(2, 80)
 
@@ -378,7 +378,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             toolTipText: str = 'Carregar logo'
             default_logo = u":/logo/assets/photo.png"
             self.ui.logo_btn.setIcon(QIcon(default_logo))
-            self.ui.logo_group.setToolTip(toolTipText)
+            self.ui.logo_btn.setIconSize(QSize(60, 60))
+            self.ui.verticalGroupBox_0_0_0_0.setToolTip(toolTipText)
             self.ui.logo_load_btn.setText(toolTipText)
 
     def _openLogoDialog(self) -> None:
@@ -417,6 +418,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         toolTipText: str = "Remover logo"
         self.ui.logo_btn.setIcon(QIcon(dest))
+        self.ui.logo_btn.setIconSize(QSize(110, 110))
         self.ui.verticalGroupBox_0_0_0_0.setToolTip(toolTipText)
         self.ui.logo_load_btn.setText(toolTipText)
         return True

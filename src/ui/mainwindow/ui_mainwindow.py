@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ui_mainwindowSoMSBE.ui'
+## Form generated from reading UI file 'ui_mainwindowjMDNvc.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(976, 803)
+        MainWindow.resize(994, 805)
         icon = QIcon()
         icon.addFile(u":/app/assets/logo.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -162,6 +162,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
         self.groupBox = QGroupBox(self.verticalGroupBox_0)
         self.groupBox.setObjectName(u"groupBox")
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.groupBox.sizePolicy().hasHeightForWidth())
+        self.groupBox.setSizePolicy(sizePolicy)
         self.groupBox.setStyleSheet(u"QGroupBox {\n"
 "padding-top:0;\n"
 "}")
@@ -175,9 +180,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.company_label = QLabel(self.groupBox)
         self.company_label.setObjectName(u"company_label")
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.company_label.sizePolicy().hasHeightForWidth())
         self.company_label.setSizePolicy(sizePolicy)
 
@@ -243,6 +245,8 @@ class Ui_MainWindow(object):
 
         self.verticalGroupBox_0_0_0_0 = QGroupBox(self.groupBox)
         self.verticalGroupBox_0_0_0_0.setObjectName(u"verticalGroupBox_0_0_0_0")
+        sizePolicy.setHeightForWidth(self.verticalGroupBox_0_0_0_0.sizePolicy().hasHeightForWidth())
+        self.verticalGroupBox_0_0_0_0.setSizePolicy(sizePolicy)
         self.verticalGroupBox_0_0_0_0.setMinimumSize(QSize(180, 0))
         self.verticalGroupBox_0_0_0_0.setStyleSheet(u"QGroupBox{\n"
 "padding-top:0;\n"
@@ -273,7 +277,7 @@ class Ui_MainWindow(object):
         icon3 = QIcon()
         icon3.addFile(u":/logo/assets/photo.png", QSize(), QIcon.Normal, QIcon.Off)
         self.logo_btn.setIcon(icon3)
-        self.logo_btn.setIconSize(QSize(120, 60))
+        self.logo_btn.setIconSize(QSize(60, 60))
 
         self.verticalLayout_12.addWidget(self.logo_btn)
 
@@ -296,6 +300,8 @@ class Ui_MainWindow(object):
 
         self.verticalGroupBox_0_1 = QGroupBox(self.verticalGroupBox_0)
         self.verticalGroupBox_0_1.setObjectName(u"verticalGroupBox_0_1")
+        sizePolicy.setHeightForWidth(self.verticalGroupBox_0_1.sizePolicy().hasHeightForWidth())
+        self.verticalGroupBox_0_1.setSizePolicy(sizePolicy)
         self.verticalLayout = QVBoxLayout(self.verticalGroupBox_0_1)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout_0_1_1 = QVBoxLayout()
@@ -377,6 +383,8 @@ class Ui_MainWindow(object):
 
         self.verticalGroupBox_0_2 = QGroupBox(self.verticalGroupBox_0)
         self.verticalGroupBox_0_2.setObjectName(u"verticalGroupBox_0_2")
+        sizePolicy.setHeightForWidth(self.verticalGroupBox_0_2.sizePolicy().hasHeightForWidth())
+        self.verticalGroupBox_0_2.setSizePolicy(sizePolicy)
         self.verticalLayout_6 = QVBoxLayout(self.verticalGroupBox_0_2)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.horizontalLayout_0_2_2 = QHBoxLayout()
@@ -912,7 +920,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
         self.menuBar = QMenuBar(MainWindow)
         self.menuBar.setObjectName(u"menuBar")
-        self.menuBar.setGeometry(QRect(0, 0, 976, 20))
+        self.menuBar.setGeometry(QRect(0, 0, 994, 20))
         self.menuFile = QMenu(self.menuBar)
         self.menuFile.setObjectName(u"menuFile")
         self.menuEdit = QMenu(self.menuBar)
@@ -920,6 +928,9 @@ class Ui_MainWindow(object):
         self.menuHelp = QMenu(self.menuBar)
         self.menuHelp.setObjectName(u"menuHelp")
         MainWindow.setMenuBar(self.menuBar)
+        QWidget.setTabOrder(self.comp_edit, self.date_edit)
+        QWidget.setTabOrder(self.date_edit, self.receipt_num_edit)
+        QWidget.setTabOrder(self.receipt_num_edit, self.logo_btn)
         QWidget.setTabOrder(self.logo_btn, self.logo_load_btn)
         QWidget.setTabOrder(self.logo_load_btn, self.payer_nam_edit)
         QWidget.setTabOrder(self.payer_nam_edit, self.payer_cpf_edit)
@@ -933,17 +944,18 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.benef_str_edit, self.benef_num_edit)
         QWidget.setTabOrder(self.benef_num_edit, self.benef_nei_edit)
         QWidget.setTabOrder(self.benef_nei_edit, self.benef_pho_edit)
-        QWidget.setTabOrder(self.benef_pho_edit, self.rem_serv_btn)
+        QWidget.setTabOrder(self.benef_pho_edit, self.country_combo)
+        QWidget.setTabOrder(self.country_combo, self.rem_serv_btn)
         QWidget.setTabOrder(self.rem_serv_btn, self.prod_desc_edit)
         QWidget.setTabOrder(self.prod_desc_edit, self.prod_valu_edit)
-        QWidget.setTabOrder(self.prod_valu_edit, self.add_serv_btn)
+        QWidget.setTabOrder(self.prod_valu_edit, self.prod_quant_spin)
+        QWidget.setTabOrder(self.prod_quant_spin, self.add_serv_btn)
         QWidget.setTabOrder(self.add_serv_btn, self.currency_line_edit)
         QWidget.setTabOrder(self.currency_line_edit, self.currency_btn)
         QWidget.setTabOrder(self.currency_btn, self.receipt_obs_edit)
         QWidget.setTabOrder(self.receipt_obs_edit, self.save_data_ckb)
         QWidget.setTabOrder(self.save_data_ckb, self.print_btn)
         QWidget.setTabOrder(self.print_btn, self.preview_btn)
-        QWidget.setTabOrder(self.preview_btn, self.prod_quant_spin)
 
         self.menuBar.addAction(self.menuFile.menuAction())
         self.menuBar.addAction(self.menuEdit.menuAction())
@@ -985,7 +997,7 @@ class Ui_MainWindow(object):
         self.verticalGroupBox_0.setTitle("")
         self.groupBox.setTitle("")
         self.company_label.setText(QCoreApplication.translate("MainWindow", u"Empresa:", None))
-        self.comp_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Informe o nome da empresa, se houver", None))
+        self.comp_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Informe o nome da empresa", None))
         self.date_label.setText(QCoreApplication.translate("MainWindow", u"Data do recibo: *", None))
         self.date_edit.setDisplayFormat(QCoreApplication.translate("MainWindow", u"dd/MM/yyyy", None))
         self.reicept_number.setText(QCoreApplication.translate("MainWindow", u"N\u00b0 do recibo: *", None))
