@@ -57,7 +57,7 @@ class Updater(QObject):
       return False
 
   def download(self) -> bool:
-    url: str = self._data['assets'][1]['browser_download_url'] # Asset without updater
+    url: str = self._data['assets'][0]['browser_download_url'] # Asset without updater
     try:
       request = requests.get(url, stream=True)
       request.raise_for_status()
