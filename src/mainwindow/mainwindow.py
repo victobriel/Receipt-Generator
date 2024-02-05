@@ -34,7 +34,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         if self.ui.save_data_ckb.isChecked():
             self._loadConfig()
         self.ui.receipt_num_edit.setText(self._document.number)
-        self._AUTONUMBER: str = self._document.number
         self._updateCountryComboBox()
         # Signals
         self.ui.comp_edit.textChanged.connect(
@@ -43,7 +42,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             lambda: self._onTextChanged(self.ui.date_edit))
         self.ui.receipt_num_edit.textChanged.connect(
             lambda: self._onTextChanged(self.ui.receipt_num_edit))
-        self.ui.toggle_lock_num_btn.clicked.connect(self._onToggleLockNumBtnClicked)
         self.ui.payer_nam_edit.textChanged.connect(
             lambda: self._onTextChanged(self.ui.payer_nam_edit))
         self.ui.payer_cpf_edit.textChanged.connect(
@@ -439,18 +437,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def _onCountryComboBoxIndexChanged(self) -> None:
         self._document.beneficiary["address"]["country"] = self.ui.country_combo.currentText()
-
-    def _onToggleLockNumBtnClicked(self) -> None:
-        if not self.ui.toggle_lock_num_btn.isChecked():
-            self.ui.receipt_num_edit.setText(self._AUTONUMBER)
-            self._document.number = self._AUTONUMBER
-            self.ui.receipt_num_edit.setEnabled(False)
-            self.ui.toggle_lock_num_btn.setIcon(QIcon(u":/padlock/assets/padlock.png"))
-        else:
-            self.ui.receipt_num_edit.setText(self._document.number)
-            self.ui.receipt_num_edit.setEnabled(True)
-            self.ui.receipt_num_edit.setFocus()
-            self.ui.toggle_lock_num_btn.setIcon(QIcon(u":/padlock/assets/padlock-green.png"))
 
     def _loadConfig(self) -> None:
         if self._config.get('logo'):

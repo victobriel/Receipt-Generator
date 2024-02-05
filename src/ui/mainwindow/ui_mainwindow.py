@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ui_mainwindowGPaPQE.ui'
+## Form generated from reading UI file 'ui_mainwindowSoMSBE.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -17,18 +17,18 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QDateEdit,
-    QFrame, QGridLayout, QGroupBox, QHBoxLayout,
-    QLabel, QLineEdit, QMainWindow, QMenu,
-    QMenuBar, QPlainTextEdit, QPushButton, QScrollBar,
-    QSizePolicy, QSpacerItem, QSpinBox, QStatusBar,
-    QVBoxLayout, QWidget)
+    QGridLayout, QGroupBox, QHBoxLayout, QLabel,
+    QLineEdit, QMainWindow, QMenu, QMenuBar,
+    QPlainTextEdit, QPushButton, QScrollBar, QSizePolicy,
+    QSpacerItem, QSpinBox, QStatusBar, QVBoxLayout,
+    QWidget)
 from .assets_rc import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(980, 915)
+        MainWindow.resize(976, 803)
         icon = QIcon()
         icon.addFile(u":/app/assets/logo.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -150,250 +150,6 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
         self.gridLayout.setObjectName(u"gridLayout")
-        self.verticalGroupBox_1 = QGroupBox(self.centralwidget)
-        self.verticalGroupBox_1.setObjectName(u"verticalGroupBox_1")
-        self.verticalGroupBox_1.setMinimumSize(QSize(450, 0))
-        self.verticalGroupBox_1.setStyleSheet(u"#verticalGroupBox_1 {\n"
-"border:none;\n"
-"padding-top:0;\n"
-"}")
-        self.verticalLayout_21 = QVBoxLayout(self.verticalGroupBox_1)
-        self.verticalLayout_21.setSpacing(10)
-        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
-        self.verticalGroupBox_1_0 = QGroupBox(self.verticalGroupBox_1)
-        self.verticalGroupBox_1_0.setObjectName(u"verticalGroupBox_1_0")
-        self.verticalLayout_24 = QVBoxLayout(self.verticalGroupBox_1_0)
-        self.verticalLayout_24.setObjectName(u"verticalLayout_24")
-        self.qTableViewLayout = QVBoxLayout()
-        self.qTableViewLayout.setObjectName(u"qTableViewLayout")
-        self.areaQTableView = QWidget(self.verticalGroupBox_1_0)
-        self.areaQTableView.setObjectName(u"areaQTableView")
-
-        self.qTableViewLayout.addWidget(self.areaQTableView)
-
-
-        self.verticalLayout_24.addLayout(self.qTableViewLayout)
-
-        self.rem_serv_btn = QPushButton(self.verticalGroupBox_1_0)
-        self.rem_serv_btn.setObjectName(u"rem_serv_btn")
-        self.rem_serv_btn.setMinimumSize(QSize(0, 35))
-        font = QFont()
-        font.setFamilies([u"Roboto"])
-        font.setPointSize(10)
-        self.rem_serv_btn.setFont(font)
-        self.rem_serv_btn.setCursor(QCursor(Qt.PointingHandCursor))
-
-        self.verticalLayout_24.addWidget(self.rem_serv_btn)
-
-        self.verticalGroupBox_1_0_1 = QGroupBox(self.verticalGroupBox_1_0)
-        self.verticalGroupBox_1_0_1.setObjectName(u"verticalGroupBox_1_0_1")
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.verticalGroupBox_1_0_1.sizePolicy().hasHeightForWidth())
-        self.verticalGroupBox_1_0_1.setSizePolicy(sizePolicy)
-        self.verticalGroupBox_1_0_1.setMaximumSize(QSize(16777215, 190))
-        self.verticalGroupBox_1_0_1.setCheckable(False)
-        self.verticalLayout_23 = QVBoxLayout(self.verticalGroupBox_1_0_1)
-        self.verticalLayout_23.setSpacing(4)
-        self.verticalLayout_23.setObjectName(u"verticalLayout_23")
-        self.verticalLayout_1_0_1_1 = QVBoxLayout()
-        self.verticalLayout_1_0_1_1.setSpacing(4)
-        self.verticalLayout_1_0_1_1.setObjectName(u"verticalLayout_1_0_1_1")
-        self.description_label = QLabel(self.verticalGroupBox_1_0_1)
-        self.description_label.setObjectName(u"description_label")
-        sizePolicy.setHeightForWidth(self.description_label.sizePolicy().hasHeightForWidth())
-        self.description_label.setSizePolicy(sizePolicy)
-
-        self.verticalLayout_1_0_1_1.addWidget(self.description_label)
-
-        self.prod_desc_edit = QLineEdit(self.verticalGroupBox_1_0_1)
-        self.prod_desc_edit.setObjectName(u"prod_desc_edit")
-        self.prod_desc_edit.setMinimumSize(QSize(0, 35))
-        self.prod_desc_edit.setFont(font)
-        self.prod_desc_edit.setStyleSheet(u"")
-        self.prod_desc_edit.setClearButtonEnabled(True)
-
-        self.verticalLayout_1_0_1_1.addWidget(self.prod_desc_edit)
-
-
-        self.verticalLayout_23.addLayout(self.verticalLayout_1_0_1_1)
-
-        self.horizontalLayout_1_0_1_0 = QHBoxLayout()
-        self.horizontalLayout_1_0_1_0.setObjectName(u"horizontalLayout_1_0_1_0")
-        self.verticalLayout_1_0_1_0_1 = QVBoxLayout()
-        self.verticalLayout_1_0_1_0_1.setSpacing(4)
-        self.verticalLayout_1_0_1_0_1.setObjectName(u"verticalLayout_1_0_1_0_1")
-        self.value_label = QLabel(self.verticalGroupBox_1_0_1)
-        self.value_label.setObjectName(u"value_label")
-        sizePolicy.setHeightForWidth(self.value_label.sizePolicy().hasHeightForWidth())
-        self.value_label.setSizePolicy(sizePolicy)
-
-        self.verticalLayout_1_0_1_0_1.addWidget(self.value_label)
-
-        self.horizontalLayout_1_0_1_0_1_0 = QHBoxLayout()
-        self.horizontalLayout_1_0_1_0_1_0.setSpacing(0)
-        self.horizontalLayout_1_0_1_0_1_0.setObjectName(u"horizontalLayout_1_0_1_0_1_0")
-        self.prod_valu_edit = QLineEdit(self.verticalGroupBox_1_0_1)
-        self.prod_valu_edit.setObjectName(u"prod_valu_edit")
-        self.prod_valu_edit.setMinimumSize(QSize(0, 35))
-        self.prod_valu_edit.setFont(font)
-        self.prod_valu_edit.setStyleSheet(u"")
-
-        self.horizontalLayout_1_0_1_0_1_0.addWidget(self.prod_valu_edit)
-
-        self.prod_valu_scro = QScrollBar(self.verticalGroupBox_1_0_1)
-        self.prod_valu_scro.setObjectName(u"prod_valu_scro")
-        self.prod_valu_scro.setMaximumSize(QSize(20, 35))
-        self.prod_valu_scro.setMinimum(-999999999)
-        self.prod_valu_scro.setMaximum(0)
-        self.prod_valu_scro.setPageStep(1)
-        self.prod_valu_scro.setValue(0)
-
-        self.horizontalLayout_1_0_1_0_1_0.addWidget(self.prod_valu_scro)
-
-
-        self.verticalLayout_1_0_1_0_1.addLayout(self.horizontalLayout_1_0_1_0_1_0)
-
-
-        self.horizontalLayout_1_0_1_0.addLayout(self.verticalLayout_1_0_1_0_1)
-
-        self.verticalLayout_1_0_1_0_0 = QVBoxLayout()
-        self.verticalLayout_1_0_1_0_0.setSpacing(4)
-        self.verticalLayout_1_0_1_0_0.setObjectName(u"verticalLayout_1_0_1_0_0")
-        self.quantity_label = QLabel(self.verticalGroupBox_1_0_1)
-        self.quantity_label.setObjectName(u"quantity_label")
-        sizePolicy.setHeightForWidth(self.quantity_label.sizePolicy().hasHeightForWidth())
-        self.quantity_label.setSizePolicy(sizePolicy)
-
-        self.verticalLayout_1_0_1_0_0.addWidget(self.quantity_label)
-
-        self.prod_quant_spin = QSpinBox(self.verticalGroupBox_1_0_1)
-        self.prod_quant_spin.setObjectName(u"prod_quant_spin")
-        self.prod_quant_spin.setMinimumSize(QSize(0, 35))
-        self.prod_quant_spin.setFont(font)
-        self.prod_quant_spin.setStyleSheet(u"")
-        self.prod_quant_spin.setMinimum(1)
-
-        self.verticalLayout_1_0_1_0_0.addWidget(self.prod_quant_spin)
-
-
-        self.horizontalLayout_1_0_1_0.addLayout(self.verticalLayout_1_0_1_0_0)
-
-
-        self.verticalLayout_23.addLayout(self.horizontalLayout_1_0_1_0)
-
-        self.add_serv_btn = QPushButton(self.verticalGroupBox_1_0_1)
-        self.add_serv_btn.setObjectName(u"add_serv_btn")
-        self.add_serv_btn.setMinimumSize(QSize(0, 35))
-        self.add_serv_btn.setFont(font)
-        self.add_serv_btn.setCursor(QCursor(Qt.PointingHandCursor))
-
-        self.verticalLayout_23.addWidget(self.add_serv_btn)
-
-
-        self.verticalLayout_24.addWidget(self.verticalGroupBox_1_0_1)
-
-        self.horizontalGroupBox_1_0_0 = QGroupBox(self.verticalGroupBox_1_0)
-        self.horizontalGroupBox_1_0_0.setObjectName(u"horizontalGroupBox_1_0_0")
-        sizePolicy.setHeightForWidth(self.horizontalGroupBox_1_0_0.sizePolicy().hasHeightForWidth())
-        self.horizontalGroupBox_1_0_0.setSizePolicy(sizePolicy)
-        self.horizontalGroupBox_1_0_0.setStyleSheet(u"QGroupBox{\n"
-"padding-top:0;\n"
-"}")
-        self.horizontalLayout_5 = QHBoxLayout(self.horizontalGroupBox_1_0_0)
-        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.total_value_label = QLabel(self.horizontalGroupBox_1_0_0)
-        self.total_value_label.setObjectName(u"total_value_label")
-        self.total_value_label.setFont(font)
-        self.total_value_label.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_5.addWidget(self.total_value_label)
-
-        self.horizontalLayout_1_0_0_1 = QHBoxLayout()
-        self.horizontalLayout_1_0_0_1.setSpacing(0)
-        self.horizontalLayout_1_0_0_1.setObjectName(u"horizontalLayout_1_0_0_1")
-        self.currency_line_edit = QLineEdit(self.horizontalGroupBox_1_0_0)
-        self.currency_line_edit.setObjectName(u"currency_line_edit")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.currency_line_edit.sizePolicy().hasHeightForWidth())
-        self.currency_line_edit.setSizePolicy(sizePolicy1)
-        self.currency_line_edit.setMinimumSize(QSize(0, 30))
-        font1 = QFont()
-        font1.setFamilies([u"Roboto"])
-        font1.setPointSize(11)
-        font1.setBold(True)
-        self.currency_line_edit.setFont(font1)
-        self.currency_line_edit.setStyleSheet(u"color:#5b9aff;\n"
-"border-radius:15px;\n"
-"border:1px solid #5b9aff;\n"
-"background-color:transparent;")
-        self.currency_line_edit.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_1_0_0_1.addWidget(self.currency_line_edit)
-
-        self.currency_btn = QPushButton(self.horizontalGroupBox_1_0_0)
-        self.currency_btn.setObjectName(u"currency_btn")
-        self.currency_btn.setMinimumSize(QSize(0, 30))
-        self.currency_btn.setFont(font1)
-        self.currency_btn.setCursor(QCursor(Qt.PointingHandCursor))
-        self.currency_btn.setStyleSheet(u"QPushButton {\n"
-"color:#fff;\n"
-"border-radius:15px;\n"
-"border:1px solid #5b9aff;\n"
-"background-color:#5b9aff;\n"
-"}\n"
-"QPushButton:hover {\n"
-"background-color:#82b3ff;\n"
-"}")
-
-        self.horizontalLayout_1_0_0_1.addWidget(self.currency_btn)
-
-
-        self.horizontalLayout_5.addLayout(self.horizontalLayout_1_0_0_1)
-
-        self.total_value_lbl = QLabel(self.horizontalGroupBox_1_0_0)
-        self.total_value_lbl.setObjectName(u"total_value_lbl")
-        self.total_value_lbl.setMinimumSize(QSize(80, 0))
-        font2 = QFont()
-        font2.setFamilies([u"Roboto"])
-        font2.setPointSize(11)
-        font2.setBold(False)
-        self.total_value_lbl.setFont(font2)
-        self.total_value_lbl.setStyleSheet(u"")
-        self.total_value_lbl.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_5.addWidget(self.total_value_lbl)
-
-
-        self.verticalLayout_24.addWidget(self.horizontalGroupBox_1_0_0)
-
-
-        self.verticalLayout_21.addWidget(self.verticalGroupBox_1_0)
-
-        self.verticalGroupBox_1_1 = QGroupBox(self.verticalGroupBox_1)
-        self.verticalGroupBox_1_1.setObjectName(u"verticalGroupBox_1_1")
-        sizePolicy.setHeightForWidth(self.verticalGroupBox_1_1.sizePolicy().hasHeightForWidth())
-        self.verticalGroupBox_1_1.setSizePolicy(sizePolicy)
-        self.verticalGroupBox_1_1.setStyleSheet(u"")
-        self.verticalLayout_19 = QVBoxLayout(self.verticalGroupBox_1_1)
-        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
-        self.receipt_obs_edit = QPlainTextEdit(self.verticalGroupBox_1_1)
-        self.receipt_obs_edit.setObjectName(u"receipt_obs_edit")
-        self.receipt_obs_edit.setMaximumSize(QSize(16777215, 50))
-        self.receipt_obs_edit.setFont(font)
-        self.receipt_obs_edit.setStyleSheet(u"")
-
-        self.verticalLayout_19.addWidget(self.receipt_obs_edit)
-
-
-        self.verticalLayout_21.addWidget(self.verticalGroupBox_1_1)
-
-
-        self.gridLayout.addWidget(self.verticalGroupBox_1, 0, 2, 1, 1)
-
         self.verticalGroupBox_0 = QGroupBox(self.centralwidget)
         self.verticalGroupBox_0.setObjectName(u"verticalGroupBox_0")
         self.verticalGroupBox_0.setMinimumSize(QSize(450, 0))
@@ -404,122 +160,90 @@ class Ui_MainWindow(object):
         self.verticalLayout_18 = QVBoxLayout(self.verticalGroupBox_0)
         self.verticalLayout_18.setSpacing(10)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
-        self.verticalGroupBox_0_0 = QGroupBox(self.verticalGroupBox_0)
-        self.verticalGroupBox_0_0.setObjectName(u"verticalGroupBox_0_0")
-        self.verticalGroupBox_0_0.setStyleSheet(u"")
-        self.verticalLayout_22 = QVBoxLayout(self.verticalGroupBox_0_0)
-        self.verticalLayout_22.setObjectName(u"verticalLayout_22")
-        self.verticalLayout_0_0_1 = QVBoxLayout()
-        self.verticalLayout_0_0_1.setSpacing(4)
-        self.verticalLayout_0_0_1.setObjectName(u"verticalLayout_0_0_1")
-        self.company_label = QLabel(self.verticalGroupBox_0_0)
+        self.groupBox = QGroupBox(self.verticalGroupBox_0)
+        self.groupBox.setObjectName(u"groupBox")
+        self.groupBox.setStyleSheet(u"QGroupBox {\n"
+"padding-top:0;\n"
+"}")
+        self.horizontalLayout_3 = QHBoxLayout(self.groupBox)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.verticalLayout_3 = QVBoxLayout()
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_0_0_0_1_1 = QVBoxLayout()
+        self.verticalLayout_0_0_0_1_1.setObjectName(u"verticalLayout_0_0_0_1_1")
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.company_label = QLabel(self.groupBox)
         self.company_label.setObjectName(u"company_label")
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.company_label.sizePolicy().hasHeightForWidth())
         self.company_label.setSizePolicy(sizePolicy)
 
-        self.verticalLayout_0_0_1.addWidget(self.company_label)
+        self.verticalLayout_2.addWidget(self.company_label)
 
-        self.comp_edit = QLineEdit(self.verticalGroupBox_0_0)
+        self.comp_edit = QLineEdit(self.groupBox)
         self.comp_edit.setObjectName(u"comp_edit")
         self.comp_edit.setMinimumSize(QSize(0, 35))
+        font = QFont()
+        font.setFamilies([u"Roboto"])
+        font.setPointSize(10)
         self.comp_edit.setFont(font)
         self.comp_edit.setStyleSheet(u"")
         self.comp_edit.setClearButtonEnabled(True)
 
-        self.verticalLayout_0_0_1.addWidget(self.comp_edit)
+        self.verticalLayout_2.addWidget(self.comp_edit)
 
 
-        self.verticalLayout_22.addLayout(self.verticalLayout_0_0_1)
+        self.verticalLayout_0_0_0_1_1.addLayout(self.verticalLayout_2)
 
-        self.horizontalLayout_0_0_0 = QHBoxLayout()
-        self.horizontalLayout_0_0_0.setObjectName(u"horizontalLayout_0_0_0")
-        self.verticalGroupBox_0_0_0_1 = QVBoxLayout()
-        self.verticalGroupBox_0_0_0_1.setSpacing(4)
-        self.verticalGroupBox_0_0_0_1.setObjectName(u"verticalGroupBox_0_0_0_1")
-        self.verticalLayout_0_0_0_1_0 = QVBoxLayout()
-        self.verticalLayout_0_0_0_1_0.setSpacing(4)
-        self.verticalLayout_0_0_0_1_0.setObjectName(u"verticalLayout_0_0_0_1_0")
-        self.date_label = QLabel(self.verticalGroupBox_0_0)
+        self.date_label = QLabel(self.groupBox)
         self.date_label.setObjectName(u"date_label")
         sizePolicy.setHeightForWidth(self.date_label.sizePolicy().hasHeightForWidth())
         self.date_label.setSizePolicy(sizePolicy)
-        self.date_label.setMaximumSize(QSize(16777215, 30))
 
-        self.verticalLayout_0_0_0_1_0.addWidget(self.date_label)
+        self.verticalLayout_0_0_0_1_1.addWidget(self.date_label)
 
-        self.date_edit = QDateEdit(self.verticalGroupBox_0_0)
+        self.date_edit = QDateEdit(self.groupBox)
         self.date_edit.setObjectName(u"date_edit")
         self.date_edit.setMinimumSize(QSize(0, 35))
         self.date_edit.setFont(font)
         self.date_edit.setWrapping(False)
         self.date_edit.setCalendarPopup(True)
 
-        self.verticalLayout_0_0_0_1_0.addWidget(self.date_edit)
+        self.verticalLayout_0_0_0_1_1.addWidget(self.date_edit)
 
 
-        self.verticalGroupBox_0_0_0_1.addLayout(self.verticalLayout_0_0_0_1_0)
+        self.verticalLayout_3.addLayout(self.verticalLayout_0_0_0_1_1)
 
-        self.verticalLayout_0_0_0_1_1 = QVBoxLayout()
-        self.verticalLayout_0_0_0_1_1.setSpacing(0)
-        self.verticalLayout_0_0_0_1_1.setObjectName(u"verticalLayout_0_0_0_1_1")
-        self.reicept_number = QLabel(self.verticalGroupBox_0_0)
+        self.verticalLayout_4 = QVBoxLayout()
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.reicept_number = QLabel(self.groupBox)
         self.reicept_number.setObjectName(u"reicept_number")
         sizePolicy.setHeightForWidth(self.reicept_number.sizePolicy().hasHeightForWidth())
         self.reicept_number.setSizePolicy(sizePolicy)
-        self.reicept_number.setMaximumSize(QSize(16777215, 30))
 
-        self.verticalLayout_0_0_0_1_1.addWidget(self.reicept_number)
+        self.verticalLayout_4.addWidget(self.reicept_number)
 
-        self.horizontalLayout_0_0_0_1_1_0 = QHBoxLayout()
-        self.horizontalLayout_0_0_0_1_1_0.setSpacing(2)
-        self.horizontalLayout_0_0_0_1_1_0.setObjectName(u"horizontalLayout_0_0_0_1_1_0")
-        self.receipt_num_edit = QLineEdit(self.verticalGroupBox_0_0)
+        self.receipt_num_edit = QLineEdit(self.groupBox)
         self.receipt_num_edit.setObjectName(u"receipt_num_edit")
-        self.receipt_num_edit.setEnabled(False)
         self.receipt_num_edit.setMinimumSize(QSize(0, 35))
         self.receipt_num_edit.setFont(font)
         self.receipt_num_edit.setStyleSheet(u"")
         self.receipt_num_edit.setClearButtonEnabled(False)
 
-        self.horizontalLayout_0_0_0_1_1_0.addWidget(self.receipt_num_edit)
-
-        self.toggle_lock_num_btn = QPushButton(self.verticalGroupBox_0_0)
-        self.toggle_lock_num_btn.setObjectName(u"toggle_lock_num_btn")
-        self.toggle_lock_num_btn.setMinimumSize(QSize(25, 25))
-        self.toggle_lock_num_btn.setMaximumSize(QSize(25, 25))
-        self.toggle_lock_num_btn.setStyleSheet(u"QPushButton {\n"
-"border-radius:12px;\n"
-"background-color:#303440;\n"
-"border:none;\n"
-"}")
-        icon3 = QIcon()
-        icon3.addFile(u":/padlock/assets/padlock.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.toggle_lock_num_btn.setIcon(icon3)
-        self.toggle_lock_num_btn.setCheckable(True)
-
-        self.horizontalLayout_0_0_0_1_1_0.addWidget(self.toggle_lock_num_btn)
+        self.verticalLayout_4.addWidget(self.receipt_num_edit)
 
 
-        self.verticalLayout_0_0_0_1_1.addLayout(self.horizontalLayout_0_0_0_1_1_0)
+        self.verticalLayout_3.addLayout(self.verticalLayout_4)
 
 
-        self.verticalGroupBox_0_0_0_1.addLayout(self.verticalLayout_0_0_0_1_1)
+        self.horizontalLayout_3.addLayout(self.verticalLayout_3)
 
-
-        self.horizontalLayout_0_0_0.addLayout(self.verticalGroupBox_0_0_0_1)
-
-        self.line_0 = QFrame(self.verticalGroupBox_0_0)
-        self.line_0.setObjectName(u"line_0")
-        self.line_0.setFrameShape(QFrame.VLine)
-        self.line_0.setFrameShadow(QFrame.Sunken)
-
-        self.horizontalLayout_0_0_0.addWidget(self.line_0)
-
-        self.verticalGroupBox_0_0_0_0 = QGroupBox(self.verticalGroupBox_0_0)
+        self.verticalGroupBox_0_0_0_0 = QGroupBox(self.groupBox)
         self.verticalGroupBox_0_0_0_0.setObjectName(u"verticalGroupBox_0_0_0_0")
-        sizePolicy.setHeightForWidth(self.verticalGroupBox_0_0_0_0.sizePolicy().hasHeightForWidth())
-        self.verticalGroupBox_0_0_0_0.setSizePolicy(sizePolicy)
-        self.verticalGroupBox_0_0_0_0.setMinimumSize(QSize(160, 120))
+        self.verticalGroupBox_0_0_0_0.setMinimumSize(QSize(180, 0))
         self.verticalGroupBox_0_0_0_0.setStyleSheet(u"QGroupBox{\n"
 "padding-top:0;\n"
 "border:none;\n"
@@ -529,10 +253,12 @@ class Ui_MainWindow(object):
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.label = QLabel(self.verticalGroupBox_0_0_0_0)
         self.label.setObjectName(u"label")
-        font3 = QFont()
-        font3.setFamilies([u"Roboto"])
-        font3.setPointSize(8)
-        self.label.setFont(font3)
+        sizePolicy.setHeightForWidth(self.label.sizePolicy().hasHeightForWidth())
+        self.label.setSizePolicy(sizePolicy)
+        font1 = QFont()
+        font1.setFamilies([u"Roboto"])
+        font1.setPointSize(8)
+        self.label.setFont(font1)
         self.label.setStyleSheet(u"color:#ccc;")
         self.label.setAlignment(Qt.AlignCenter)
 
@@ -540,20 +266,20 @@ class Ui_MainWindow(object):
 
         self.logo_btn = QPushButton(self.verticalGroupBox_0_0_0_0)
         self.logo_btn.setObjectName(u"logo_btn")
-        self.logo_btn.setMinimumSize(QSize(0, 80))
+        self.logo_btn.setMinimumSize(QSize(115, 115))
         self.logo_btn.setFont(font)
         self.logo_btn.setCursor(QCursor(Qt.PointingHandCursor))
         self.logo_btn.setStyleSheet(u"border-bottom:none;")
-        icon4 = QIcon()
-        icon4.addFile(u":/logo/assets/photo.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.logo_btn.setIcon(icon4)
+        icon3 = QIcon()
+        icon3.addFile(u":/logo/assets/photo.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.logo_btn.setIcon(icon3)
         self.logo_btn.setIconSize(QSize(120, 60))
 
         self.verticalLayout_12.addWidget(self.logo_btn)
 
         self.logo_load_btn = QPushButton(self.verticalGroupBox_0_0_0_0)
         self.logo_load_btn.setObjectName(u"logo_load_btn")
-        self.logo_load_btn.setMinimumSize(QSize(0, 20))
+        self.logo_load_btn.setMinimumSize(QSize(0, 33))
         self.logo_load_btn.setCursor(QCursor(Qt.PointingHandCursor))
         self.logo_load_btn.setStyleSheet(u"text-decoration:underline;\n"
 "background-color:transparent;\n"
@@ -563,13 +289,10 @@ class Ui_MainWindow(object):
         self.verticalLayout_12.addWidget(self.logo_load_btn)
 
 
-        self.horizontalLayout_0_0_0.addWidget(self.verticalGroupBox_0_0_0_0)
+        self.horizontalLayout_3.addWidget(self.verticalGroupBox_0_0_0_0)
 
 
-        self.verticalLayout_22.addLayout(self.horizontalLayout_0_0_0)
-
-
-        self.verticalLayout_18.addWidget(self.verticalGroupBox_0_0)
+        self.verticalLayout_18.addWidget(self.groupBox)
 
         self.verticalGroupBox_0_1 = QGroupBox(self.verticalGroupBox_0)
         self.verticalGroupBox_0_1.setObjectName(u"verticalGroupBox_0_1")
@@ -580,6 +303,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_0_1_1.setObjectName(u"verticalLayout_0_1_1")
         self.name_label_0 = QLabel(self.verticalGroupBox_0_1)
         self.name_label_0.setObjectName(u"name_label_0")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.name_label_0.sizePolicy().hasHeightForWidth())
         self.name_label_0.setSizePolicy(sizePolicy1)
 
@@ -864,8 +590,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_0_2_0.addLayout(self.verticalLayout_0_2_0_1)
 
+        self.verticalLayout_5 = QVBoxLayout()
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.label_2 = QLabel(self.verticalGroupBox_0_2)
+        self.label_2.setObjectName(u"label_2")
 
-        self.verticalLayout_6.addLayout(self.horizontalLayout_0_2_0)
+        self.verticalLayout_5.addWidget(self.label_2)
 
         self.country_combo = QComboBox(self.verticalGroupBox_0_2)
         self.country_combo.setObjectName(u"country_combo")
@@ -873,15 +603,261 @@ class Ui_MainWindow(object):
         self.country_combo.setFont(font)
         self.country_combo.setStyleSheet(u"")
 
-        self.verticalLayout_6.addWidget(self.country_combo)
+        self.verticalLayout_5.addWidget(self.country_combo)
+
+
+        self.horizontalLayout_0_2_0.addLayout(self.verticalLayout_5)
+
+
+        self.verticalLayout_6.addLayout(self.horizontalLayout_0_2_0)
 
 
         self.verticalLayout_18.addWidget(self.verticalGroupBox_0_2)
 
 
-        self.gridLayout.addWidget(self.verticalGroupBox_0, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.verticalGroupBox_0, 1, 1, 1, 1)
 
-        self.verticalGroupBox_2 = QGroupBox(self.centralwidget)
+        self.horizontalSpacer_0 = QSpacerItem(20, 20, QSizePolicy.MinimumExpanding, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_0, 0, 0, 3, 1)
+
+        self.horizontalSpacer_1 = QSpacerItem(20, 20, QSizePolicy.MinimumExpanding, QSizePolicy.Minimum)
+
+        self.gridLayout.addItem(self.horizontalSpacer_1, 0, 3, 3, 1)
+
+        self.verticalGroupBox_1 = QGroupBox(self.centralwidget)
+        self.verticalGroupBox_1.setObjectName(u"verticalGroupBox_1")
+        self.verticalGroupBox_1.setMinimumSize(QSize(450, 0))
+        self.verticalGroupBox_1.setStyleSheet(u"#verticalGroupBox_1 {\n"
+"border:none;\n"
+"padding-top:0;\n"
+"}")
+        self.verticalLayout_21 = QVBoxLayout(self.verticalGroupBox_1)
+        self.verticalLayout_21.setSpacing(10)
+        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
+        self.verticalGroupBox_1_0 = QGroupBox(self.verticalGroupBox_1)
+        self.verticalGroupBox_1_0.setObjectName(u"verticalGroupBox_1_0")
+        self.verticalLayout_24 = QVBoxLayout(self.verticalGroupBox_1_0)
+        self.verticalLayout_24.setObjectName(u"verticalLayout_24")
+        self.qTableViewLayout = QVBoxLayout()
+        self.qTableViewLayout.setObjectName(u"qTableViewLayout")
+        self.areaQTableView = QWidget(self.verticalGroupBox_1_0)
+        self.areaQTableView.setObjectName(u"areaQTableView")
+
+        self.qTableViewLayout.addWidget(self.areaQTableView)
+
+
+        self.verticalLayout_24.addLayout(self.qTableViewLayout)
+
+        self.rem_serv_btn = QPushButton(self.verticalGroupBox_1_0)
+        self.rem_serv_btn.setObjectName(u"rem_serv_btn")
+        self.rem_serv_btn.setMinimumSize(QSize(0, 35))
+        self.rem_serv_btn.setFont(font)
+        self.rem_serv_btn.setCursor(QCursor(Qt.PointingHandCursor))
+
+        self.verticalLayout_24.addWidget(self.rem_serv_btn)
+
+        self.verticalGroupBox_1_0_1 = QGroupBox(self.verticalGroupBox_1_0)
+        self.verticalGroupBox_1_0_1.setObjectName(u"verticalGroupBox_1_0_1")
+        sizePolicy.setHeightForWidth(self.verticalGroupBox_1_0_1.sizePolicy().hasHeightForWidth())
+        self.verticalGroupBox_1_0_1.setSizePolicy(sizePolicy)
+        self.verticalGroupBox_1_0_1.setMaximumSize(QSize(16777215, 190))
+        self.verticalGroupBox_1_0_1.setCheckable(False)
+        self.verticalLayout_23 = QVBoxLayout(self.verticalGroupBox_1_0_1)
+        self.verticalLayout_23.setSpacing(4)
+        self.verticalLayout_23.setObjectName(u"verticalLayout_23")
+        self.verticalLayout_1_0_1_1 = QVBoxLayout()
+        self.verticalLayout_1_0_1_1.setSpacing(4)
+        self.verticalLayout_1_0_1_1.setObjectName(u"verticalLayout_1_0_1_1")
+        self.description_label = QLabel(self.verticalGroupBox_1_0_1)
+        self.description_label.setObjectName(u"description_label")
+        sizePolicy.setHeightForWidth(self.description_label.sizePolicy().hasHeightForWidth())
+        self.description_label.setSizePolicy(sizePolicy)
+
+        self.verticalLayout_1_0_1_1.addWidget(self.description_label)
+
+        self.prod_desc_edit = QLineEdit(self.verticalGroupBox_1_0_1)
+        self.prod_desc_edit.setObjectName(u"prod_desc_edit")
+        self.prod_desc_edit.setMinimumSize(QSize(0, 35))
+        self.prod_desc_edit.setFont(font)
+        self.prod_desc_edit.setStyleSheet(u"")
+        self.prod_desc_edit.setClearButtonEnabled(True)
+
+        self.verticalLayout_1_0_1_1.addWidget(self.prod_desc_edit)
+
+
+        self.verticalLayout_23.addLayout(self.verticalLayout_1_0_1_1)
+
+        self.horizontalLayout_1_0_1_0 = QHBoxLayout()
+        self.horizontalLayout_1_0_1_0.setObjectName(u"horizontalLayout_1_0_1_0")
+        self.verticalLayout_1_0_1_0_1 = QVBoxLayout()
+        self.verticalLayout_1_0_1_0_1.setSpacing(4)
+        self.verticalLayout_1_0_1_0_1.setObjectName(u"verticalLayout_1_0_1_0_1")
+        self.value_label = QLabel(self.verticalGroupBox_1_0_1)
+        self.value_label.setObjectName(u"value_label")
+        sizePolicy.setHeightForWidth(self.value_label.sizePolicy().hasHeightForWidth())
+        self.value_label.setSizePolicy(sizePolicy)
+
+        self.verticalLayout_1_0_1_0_1.addWidget(self.value_label)
+
+        self.horizontalLayout_1_0_1_0_1_0 = QHBoxLayout()
+        self.horizontalLayout_1_0_1_0_1_0.setSpacing(0)
+        self.horizontalLayout_1_0_1_0_1_0.setObjectName(u"horizontalLayout_1_0_1_0_1_0")
+        self.prod_valu_edit = QLineEdit(self.verticalGroupBox_1_0_1)
+        self.prod_valu_edit.setObjectName(u"prod_valu_edit")
+        self.prod_valu_edit.setMinimumSize(QSize(0, 35))
+        self.prod_valu_edit.setFont(font)
+        self.prod_valu_edit.setStyleSheet(u"")
+
+        self.horizontalLayout_1_0_1_0_1_0.addWidget(self.prod_valu_edit)
+
+        self.prod_valu_scro = QScrollBar(self.verticalGroupBox_1_0_1)
+        self.prod_valu_scro.setObjectName(u"prod_valu_scro")
+        self.prod_valu_scro.setMaximumSize(QSize(20, 35))
+        self.prod_valu_scro.setMinimum(-999999999)
+        self.prod_valu_scro.setMaximum(0)
+        self.prod_valu_scro.setPageStep(1)
+        self.prod_valu_scro.setValue(0)
+
+        self.horizontalLayout_1_0_1_0_1_0.addWidget(self.prod_valu_scro)
+
+
+        self.verticalLayout_1_0_1_0_1.addLayout(self.horizontalLayout_1_0_1_0_1_0)
+
+
+        self.horizontalLayout_1_0_1_0.addLayout(self.verticalLayout_1_0_1_0_1)
+
+        self.verticalLayout_1_0_1_0_0 = QVBoxLayout()
+        self.verticalLayout_1_0_1_0_0.setSpacing(4)
+        self.verticalLayout_1_0_1_0_0.setObjectName(u"verticalLayout_1_0_1_0_0")
+        self.quantity_label = QLabel(self.verticalGroupBox_1_0_1)
+        self.quantity_label.setObjectName(u"quantity_label")
+        sizePolicy.setHeightForWidth(self.quantity_label.sizePolicy().hasHeightForWidth())
+        self.quantity_label.setSizePolicy(sizePolicy)
+
+        self.verticalLayout_1_0_1_0_0.addWidget(self.quantity_label)
+
+        self.prod_quant_spin = QSpinBox(self.verticalGroupBox_1_0_1)
+        self.prod_quant_spin.setObjectName(u"prod_quant_spin")
+        self.prod_quant_spin.setMinimumSize(QSize(0, 35))
+        self.prod_quant_spin.setFont(font)
+        self.prod_quant_spin.setStyleSheet(u"")
+        self.prod_quant_spin.setMinimum(1)
+
+        self.verticalLayout_1_0_1_0_0.addWidget(self.prod_quant_spin)
+
+
+        self.horizontalLayout_1_0_1_0.addLayout(self.verticalLayout_1_0_1_0_0)
+
+
+        self.verticalLayout_23.addLayout(self.horizontalLayout_1_0_1_0)
+
+        self.add_serv_btn = QPushButton(self.verticalGroupBox_1_0_1)
+        self.add_serv_btn.setObjectName(u"add_serv_btn")
+        self.add_serv_btn.setMinimumSize(QSize(0, 35))
+        self.add_serv_btn.setFont(font)
+        self.add_serv_btn.setCursor(QCursor(Qt.PointingHandCursor))
+
+        self.verticalLayout_23.addWidget(self.add_serv_btn)
+
+
+        self.verticalLayout_24.addWidget(self.verticalGroupBox_1_0_1)
+
+        self.horizontalGroupBox_1_0_0 = QGroupBox(self.verticalGroupBox_1_0)
+        self.horizontalGroupBox_1_0_0.setObjectName(u"horizontalGroupBox_1_0_0")
+        sizePolicy.setHeightForWidth(self.horizontalGroupBox_1_0_0.sizePolicy().hasHeightForWidth())
+        self.horizontalGroupBox_1_0_0.setSizePolicy(sizePolicy)
+        self.horizontalGroupBox_1_0_0.setStyleSheet(u"QGroupBox{\n"
+"padding-top:0;\n"
+"}")
+        self.horizontalLayout_5 = QHBoxLayout(self.horizontalGroupBox_1_0_0)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.total_value_label = QLabel(self.horizontalGroupBox_1_0_0)
+        self.total_value_label.setObjectName(u"total_value_label")
+        self.total_value_label.setFont(font)
+        self.total_value_label.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_5.addWidget(self.total_value_label)
+
+        self.horizontalLayout_1_0_0_1 = QHBoxLayout()
+        self.horizontalLayout_1_0_0_1.setSpacing(0)
+        self.horizontalLayout_1_0_0_1.setObjectName(u"horizontalLayout_1_0_0_1")
+        self.currency_line_edit = QLineEdit(self.horizontalGroupBox_1_0_0)
+        self.currency_line_edit.setObjectName(u"currency_line_edit")
+        sizePolicy1.setHeightForWidth(self.currency_line_edit.sizePolicy().hasHeightForWidth())
+        self.currency_line_edit.setSizePolicy(sizePolicy1)
+        self.currency_line_edit.setMinimumSize(QSize(0, 30))
+        font2 = QFont()
+        font2.setFamilies([u"Roboto"])
+        font2.setPointSize(11)
+        font2.setBold(True)
+        self.currency_line_edit.setFont(font2)
+        self.currency_line_edit.setStyleSheet(u"color:#5b9aff;\n"
+"border-radius:15px;\n"
+"border:1px solid #5b9aff;\n"
+"background-color:transparent;")
+        self.currency_line_edit.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_1_0_0_1.addWidget(self.currency_line_edit)
+
+        self.currency_btn = QPushButton(self.horizontalGroupBox_1_0_0)
+        self.currency_btn.setObjectName(u"currency_btn")
+        self.currency_btn.setMinimumSize(QSize(0, 30))
+        self.currency_btn.setFont(font2)
+        self.currency_btn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.currency_btn.setStyleSheet(u"QPushButton {\n"
+"color:#fff;\n"
+"border-radius:15px;\n"
+"border:1px solid #5b9aff;\n"
+"background-color:#5b9aff;\n"
+"}\n"
+"QPushButton:hover {\n"
+"background-color:#82b3ff;\n"
+"}")
+
+        self.horizontalLayout_1_0_0_1.addWidget(self.currency_btn)
+
+
+        self.horizontalLayout_5.addLayout(self.horizontalLayout_1_0_0_1)
+
+        self.total_value_lbl = QLabel(self.horizontalGroupBox_1_0_0)
+        self.total_value_lbl.setObjectName(u"total_value_lbl")
+        self.total_value_lbl.setMinimumSize(QSize(80, 0))
+        font3 = QFont()
+        font3.setFamilies([u"Roboto"])
+        font3.setPointSize(11)
+        font3.setBold(False)
+        self.total_value_lbl.setFont(font3)
+        self.total_value_lbl.setStyleSheet(u"")
+        self.total_value_lbl.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_5.addWidget(self.total_value_lbl)
+
+
+        self.verticalLayout_24.addWidget(self.horizontalGroupBox_1_0_0)
+
+
+        self.verticalLayout_21.addWidget(self.verticalGroupBox_1_0)
+
+        self.verticalGroupBox_1_1 = QGroupBox(self.verticalGroupBox_1)
+        self.verticalGroupBox_1_1.setObjectName(u"verticalGroupBox_1_1")
+        sizePolicy.setHeightForWidth(self.verticalGroupBox_1_1.sizePolicy().hasHeightForWidth())
+        self.verticalGroupBox_1_1.setSizePolicy(sizePolicy)
+        self.verticalGroupBox_1_1.setStyleSheet(u"")
+        self.verticalLayout_19 = QVBoxLayout(self.verticalGroupBox_1_1)
+        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
+        self.receipt_obs_edit = QPlainTextEdit(self.verticalGroupBox_1_1)
+        self.receipt_obs_edit.setObjectName(u"receipt_obs_edit")
+        self.receipt_obs_edit.setMaximumSize(QSize(16777215, 50))
+        self.receipt_obs_edit.setFont(font)
+        self.receipt_obs_edit.setStyleSheet(u"")
+
+        self.verticalLayout_19.addWidget(self.receipt_obs_edit)
+
+
+        self.verticalLayout_21.addWidget(self.verticalGroupBox_1_1)
+
+        self.verticalGroupBox_2 = QGroupBox(self.verticalGroupBox_1)
         self.verticalGroupBox_2.setObjectName(u"verticalGroupBox_2")
         sizePolicy.setHeightForWidth(self.verticalGroupBox_2.sizePolicy().hasHeightForWidth())
         self.verticalGroupBox_2.setSizePolicy(sizePolicy)
@@ -906,9 +882,9 @@ class Ui_MainWindow(object):
         self.print_btn.setMinimumSize(QSize(130, 30))
         self.print_btn.setCursor(QCursor(Qt.PointingHandCursor))
         self.print_btn.setStyleSheet(u"")
-        icon5 = QIcon()
-        icon5.addFile(u":/print/assets/print-blue-26.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.print_btn.setIcon(icon5)
+        icon4 = QIcon()
+        icon4.addFile(u":/print/assets/print-blue-26.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.print_btn.setIcon(icon4)
         self.print_btn.setIconSize(QSize(18, 18))
 
         self.horizontalLayout.addWidget(self.print_btn)
@@ -917,23 +893,18 @@ class Ui_MainWindow(object):
         self.preview_btn.setObjectName(u"preview_btn")
         self.preview_btn.setMinimumSize(QSize(150, 30))
         self.preview_btn.setCursor(QCursor(Qt.PointingHandCursor))
-        icon6 = QIcon()
-        icon6.addFile(u":/print/assets/preview-blue-30.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.preview_btn.setIcon(icon6)
+        icon5 = QIcon()
+        icon5.addFile(u":/print/assets/preview-blue-30.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.preview_btn.setIcon(icon5)
         self.preview_btn.setIconSize(QSize(18, 18))
 
         self.horizontalLayout.addWidget(self.preview_btn)
 
 
-        self.gridLayout.addWidget(self.verticalGroupBox_2, 1, 1, 1, 2)
+        self.verticalLayout_21.addWidget(self.verticalGroupBox_2)
 
-        self.horizontalSpacer_1 = QSpacerItem(20, 20, QSizePolicy.MinimumExpanding, QSizePolicy.Minimum)
 
-        self.gridLayout.addItem(self.horizontalSpacer_1, 0, 3, 2, 1)
-
-        self.horizontalSpacer_0 = QSpacerItem(20, 20, QSizePolicy.MinimumExpanding, QSizePolicy.Minimum)
-
-        self.gridLayout.addItem(self.horizontalSpacer_0, 0, 0, 2, 1)
+        self.gridLayout.addWidget(self.verticalGroupBox_1, 1, 2, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QStatusBar(MainWindow)
@@ -941,7 +912,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
         self.menuBar = QMenuBar(MainWindow)
         self.menuBar.setObjectName(u"menuBar")
-        self.menuBar.setGeometry(QRect(0, 0, 980, 20))
+        self.menuBar.setGeometry(QRect(0, 0, 976, 20))
         self.menuFile = QMenu(self.menuBar)
         self.menuFile.setObjectName(u"menuFile")
         self.menuEdit = QMenu(self.menuBar)
@@ -949,10 +920,6 @@ class Ui_MainWindow(object):
         self.menuHelp = QMenu(self.menuBar)
         self.menuHelp.setObjectName(u"menuHelp")
         MainWindow.setMenuBar(self.menuBar)
-        QWidget.setTabOrder(self.comp_edit, self.date_edit)
-        QWidget.setTabOrder(self.date_edit, self.receipt_num_edit)
-        QWidget.setTabOrder(self.receipt_num_edit, self.toggle_lock_num_btn)
-        QWidget.setTabOrder(self.toggle_lock_num_btn, self.logo_btn)
         QWidget.setTabOrder(self.logo_btn, self.logo_load_btn)
         QWidget.setTabOrder(self.logo_load_btn, self.payer_nam_edit)
         QWidget.setTabOrder(self.payer_nam_edit, self.payer_cpf_edit)
@@ -966,8 +933,7 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.benef_str_edit, self.benef_num_edit)
         QWidget.setTabOrder(self.benef_num_edit, self.benef_nei_edit)
         QWidget.setTabOrder(self.benef_nei_edit, self.benef_pho_edit)
-        QWidget.setTabOrder(self.benef_pho_edit, self.country_combo)
-        QWidget.setTabOrder(self.country_combo, self.rem_serv_btn)
+        QWidget.setTabOrder(self.benef_pho_edit, self.rem_serv_btn)
         QWidget.setTabOrder(self.rem_serv_btn, self.prod_desc_edit)
         QWidget.setTabOrder(self.prod_desc_edit, self.prod_valu_edit)
         QWidget.setTabOrder(self.prod_valu_edit, self.add_serv_btn)
@@ -1016,33 +982,14 @@ class Ui_MainWindow(object):
         self.actionPreview.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+U", None))
 #endif // QT_CONFIG(shortcut)
         self.actionCheckForUpdates.setText(QCoreApplication.translate("MainWindow", u"Check for updates", None))
-        self.verticalGroupBox_1.setTitle("")
-        self.verticalGroupBox_1_0.setTitle(QCoreApplication.translate("MainWindow", u"Servi\u00e7os/Produtos", None))
-        self.rem_serv_btn.setText(QCoreApplication.translate("MainWindow", u"Remover servi\u00e7o/produto", None))
-        self.verticalGroupBox_1_0_1.setTitle(QCoreApplication.translate("MainWindow", u"Adicionar", None))
-        self.description_label.setText(QCoreApplication.translate("MainWindow", u"Descri\u00e7\u00e3o: *", None))
-        self.value_label.setText(QCoreApplication.translate("MainWindow", u"Valor: *", None))
-        self.prod_valu_edit.setText(QCoreApplication.translate("MainWindow", u"0.00", None))
-        self.prod_valu_edit.setPlaceholderText("")
-        self.quantity_label.setText(QCoreApplication.translate("MainWindow", u"Quant.: *", None))
-        self.add_serv_btn.setText(QCoreApplication.translate("MainWindow", u"Adicionar servi\u00e7o/produto", None))
-        self.total_value_label.setText(QCoreApplication.translate("MainWindow", u"TOTAL:", None))
-        self.currency_btn.setText(QCoreApplication.translate("MainWindow", u"R$", None))
-        self.total_value_lbl.setText(QCoreApplication.translate("MainWindow", u"0.00", None))
-        self.verticalGroupBox_1_1.setTitle(QCoreApplication.translate("MainWindow", u"Observa\u00e7\u00e3o", None))
-        self.receipt_obs_edit.setPlainText("")
         self.verticalGroupBox_0.setTitle("")
-        self.verticalGroupBox_0_0.setTitle(QCoreApplication.translate("MainWindow", u"Dados do recibo", None))
+        self.groupBox.setTitle("")
         self.company_label.setText(QCoreApplication.translate("MainWindow", u"Empresa:", None))
         self.comp_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Informe o nome da empresa, se houver", None))
         self.date_label.setText(QCoreApplication.translate("MainWindow", u"Data do recibo: *", None))
         self.date_edit.setDisplayFormat(QCoreApplication.translate("MainWindow", u"dd/MM/yyyy", None))
         self.reicept_number.setText(QCoreApplication.translate("MainWindow", u"N\u00b0 do recibo: *", None))
         self.receipt_num_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0000", None))
-#if QT_CONFIG(tooltip)
-        self.toggle_lock_num_btn.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Desbloquear n\u00famero de recibo.</p><p>Se voc\u00ea desejar um n\u00famero personalizado, clique aqui para desbloquear.</p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
-        self.toggle_lock_num_btn.setText("")
 #if QT_CONFIG(tooltip)
         self.verticalGroupBox_0_0_0_0.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Carregar logo</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
@@ -1074,9 +1021,25 @@ class Ui_MainWindow(object):
         self.benef_nei_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Bairro Exemplo", None))
         self.phone_label_1.setText(QCoreApplication.translate("MainWindow", u"Fone:", None))
         self.benef_pho_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Celular do benefici\u00e1rio", None))
-        self.country_combo.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Selecione o pa\u00eds", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Pais: *", None))
+        self.country_combo.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Selecione o pais", None))
+        self.verticalGroupBox_1.setTitle("")
+        self.verticalGroupBox_1_0.setTitle(QCoreApplication.translate("MainWindow", u"Servi\u00e7os/Produtos", None))
+        self.rem_serv_btn.setText(QCoreApplication.translate("MainWindow", u"Remover servi\u00e7o/produto", None))
+        self.verticalGroupBox_1_0_1.setTitle(QCoreApplication.translate("MainWindow", u"Adicionar", None))
+        self.description_label.setText(QCoreApplication.translate("MainWindow", u"Descri\u00e7\u00e3o: *", None))
+        self.value_label.setText(QCoreApplication.translate("MainWindow", u"Valor: *", None))
+        self.prod_valu_edit.setText(QCoreApplication.translate("MainWindow", u"0.00", None))
+        self.prod_valu_edit.setPlaceholderText("")
+        self.quantity_label.setText(QCoreApplication.translate("MainWindow", u"Quant.: *", None))
+        self.add_serv_btn.setText(QCoreApplication.translate("MainWindow", u"Adicionar servi\u00e7o/produto", None))
+        self.total_value_label.setText(QCoreApplication.translate("MainWindow", u"TOTAL:", None))
+        self.currency_btn.setText(QCoreApplication.translate("MainWindow", u"R$", None))
+        self.total_value_lbl.setText(QCoreApplication.translate("MainWindow", u"0.00", None))
+        self.verticalGroupBox_1_1.setTitle(QCoreApplication.translate("MainWindow", u"Observa\u00e7\u00e3o", None))
+        self.receipt_obs_edit.setPlainText("")
         self.verticalGroupBox_2.setTitle("")
-        self.save_data_ckb.setText(QCoreApplication.translate("MainWindow", u"Salvar dados para a pr\u00f3xima vez", None))
+        self.save_data_ckb.setText(QCoreApplication.translate("MainWindow", u"Salvar dados", None))
         self.print_btn.setText(QCoreApplication.translate("MainWindow", u"Imprimir", None))
         self.preview_btn.setText(QCoreApplication.translate("MainWindow", u"Visualizar modelo", None))
         self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
