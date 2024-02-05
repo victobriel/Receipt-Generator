@@ -57,7 +57,7 @@ class Updater(QObject):
       return False
 
   def download(self) -> bool:
-    url: str = self._data['assets'][0]['browser_download_url']
+    url: str = self._data['assets'][1]['browser_download_url'] # Asset without updater
     try:
       request = requests.get(url, stream=True)
       request.raise_for_status()
@@ -109,7 +109,9 @@ class Updater(QObject):
         z.extractall(self._tempFolder)
       os.remove(self._filePath)
       logging.info(f'Deleted {self._filePath}')
-      shutil.rmtree(Path(self._tempFolder).joinpath('updater'))
+      updaterFolder: str = Path(self._tempFolder).joinpath('updater')
+      if os.path.exists(updaterFolder):
+        shutil.rmtree(updaterFolder)
     except Exception as e:
       self.addMessage.emit(f'Erro ao instalar atualização: {e}')
       logging.error(f'Error installing update: {e}')
