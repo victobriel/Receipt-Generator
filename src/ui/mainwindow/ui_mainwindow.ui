@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>976</width>
-    <height>931</height>
+    <width>980</width>
+    <height>915</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -115,7 +115,7 @@ border-top: 1px solid #5b9aff;
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">#groupBox_7 {
+       <string notr="true">#verticalGroupBox_1 {
 border:none;
 padding-top:0;
 }</string>
@@ -560,7 +560,7 @@ background-color:#82b3ff;
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">#verticalGroupBox {
+       <string notr="true">#verticalGroupBox_0 {
 border:none;
 padding-top:0;
 }</string>
@@ -1604,7 +1604,7 @@ border:none;
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>976</width>
+     <width>980</width>
      <height>20</height>
     </rect>
    </property>

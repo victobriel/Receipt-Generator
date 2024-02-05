@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ui_mainwindowVatrCj.ui'
+## Form generated from reading UI file 'ui_mainwindowGPaPQE.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -28,7 +28,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(976, 931)
+        MainWindow.resize(980, 915)
         icon = QIcon()
         icon.addFile(u":/app/assets/logo.png", QSize(), QIcon.Normal, QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -153,7 +153,7 @@ class Ui_MainWindow(object):
         self.verticalGroupBox_1 = QGroupBox(self.centralwidget)
         self.verticalGroupBox_1.setObjectName(u"verticalGroupBox_1")
         self.verticalGroupBox_1.setMinimumSize(QSize(450, 0))
-        self.verticalGroupBox_1.setStyleSheet(u"#groupBox_7 {\n"
+        self.verticalGroupBox_1.setStyleSheet(u"#verticalGroupBox_1 {\n"
 "border:none;\n"
 "padding-top:0;\n"
 "}")
@@ -397,7 +397,7 @@ class Ui_MainWindow(object):
         self.verticalGroupBox_0 = QGroupBox(self.centralwidget)
         self.verticalGroupBox_0.setObjectName(u"verticalGroupBox_0")
         self.verticalGroupBox_0.setMinimumSize(QSize(450, 0))
-        self.verticalGroupBox_0.setStyleSheet(u"#verticalGroupBox {\n"
+        self.verticalGroupBox_0.setStyleSheet(u"#verticalGroupBox_0 {\n"
 "border:none;\n"
 "padding-top:0;\n"
 "}")
@@ -941,7 +941,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
         self.menuBar = QMenuBar(MainWindow)
         self.menuBar.setObjectName(u"menuBar")
-        self.menuBar.setGeometry(QRect(0, 0, 976, 20))
+        self.menuBar.setGeometry(QRect(0, 0, 980, 20))
         self.menuFile = QMenu(self.menuBar)
         self.menuFile.setObjectName(u"menuFile")
         self.menuEdit = QMenu(self.menuBar)
