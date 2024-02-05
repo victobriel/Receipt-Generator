@@ -1,5 +1,5 @@
 from PySide6.QtCore import (QObject,Signal)
-import requests,json,logging,subprocess,time,sys,zipfile,os
+import requests,json,logging,subprocess,time,sys,zipfile,os,shutil
 from pathlib import Path
 
 class Updater(QObject):
@@ -11,9 +11,10 @@ class Updater(QObject):
   def __init__(self, parent=None) -> None:
     super().__init__()
     self._parent = parent
-    self._filePath: str = None
     self._data: dict = None
+    self._filePath: str = None
     self._mainPath: str = str(Path().absolute())
+    self._tempFolder: str = Path(self._mainPath).joinpath('temp')
     self._appJsonPath: str = Path(self._mainPath).joinpath('app.json')
     logging.basicConfig(filename='log.log', level=logging.INFO)
     logging.info(f'controll --PID {self._parent._pid}, --FREEZE {self._parent._freeze}')
@@ -51,9 +52,9 @@ class Updater(QObject):
     self.addMessage.emit(f'Versão mais recente: {githubVersion}')
     self.setCurrentProgress.emit(0, True)
     if __version__ != githubVersion:
-        return True
+      return True
     else:
-        return False
+      return False
 
   def download(self) -> bool:
     url: str = self._data['assets'][0]['browser_download_url']
@@ -69,14 +70,11 @@ class Updater(QObject):
     fileName: str = self._data['assets'][0]['name']
     readBytes: int = 0
     chunkSize: int = 1024
-    # path of app.exe
-    currentPath: str = Path().absolute()
-    tempFolder: str = Path(currentPath).joinpath('temp')
 
-    if not Path.exists(tempFolder):
-      Path.mkdir(tempFolder)
+    if not Path.exists(self._tempFolder):
+      Path.mkdir(self._tempFolder)
 
-    self._filePath = Path(tempFolder).joinpath(fileName)
+    self._filePath = Path(self._tempFolder).joinpath(fileName)
     logging.info(f'Saving downloaded update in {self._filePath}')
 
     with request as r:
@@ -89,21 +87,45 @@ class Updater(QObject):
           f.write(chunk)
           readBytes += chunkSize
           self.setCurrentProgress.emit(readBytes, False)
+
+    self.setCurrentProgress.emit(0, True)
     return True
 
   def install(self) -> bool:
+    extract: bool = self.extract()
+    if not extract:
+      return False
+    copy: bool = self.copy()
+    if not copy:
+      return False
+    return True
+
+  def extract(self) -> bool:
     logging.info('Installing update')
     self.addMessage.emit('Instalando atualização...')
-    logging.info(f'Extracting {self._filePath} to {self._mainPath}')
+    logging.info(f'Extracting {self._filePath} to {self._tempFolder}')
     try:
-      with zipfile.ZipFile(self._filePath, 'r') as zip_ref:
-        zip_ref.extractall(self._mainPath)
-      logging.info(f'Update installed in {self._mainPath}')
+      with zipfile.ZipFile(self._filePath, 'r') as z:
+        z.extractall(self._tempFolder)
       os.remove(self._filePath)
       logging.info(f'Deleted {self._filePath}')
+      shutil.rmtree(Path(self._tempFolder).joinpath('updater'))
     except Exception as e:
       self.addMessage.emit(f'Erro ao instalar atualização: {e}')
       logging.error(f'Error installing update: {e}')
+      return False
+    return True
+
+  def copy(self) -> bool:
+    logging.info('Copying files')
+    self.addMessage.emit('Copiando arquivos...')
+    try:
+      shutil.copytree(self._tempFolder, self._mainPath, dirs_exist_ok=True)
+      logging.info(f'Files copied to {self._mainPath}')
+      shutil.rmtree(self._tempFolder)
+    except Exception as e:
+      self.addMessage.emit(f'Erro ao copiar arquivos: {e}')
+      logging.error(f'Error copying files: {e}')
       return False
     return True
 

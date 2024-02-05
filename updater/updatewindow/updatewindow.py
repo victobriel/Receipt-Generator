@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QMainWindow
+from PySide6.QtWidgets import QMainWindow,QMessageBox
 from ui.updatewindow.ui_updatewindow import Ui_UpdateWindow
 from updater.updater import Updater
 import sys,psutil
@@ -53,22 +53,27 @@ class UpdateWindow(QMainWindow):
             self.setWindowTitle('Atualização baixada')
             self.addMessage('Atualização baixada com sucesso')
             self._disableDownload()
-            self.addMessage('Fechando Receipt Generator...')
-            while ((self._pid != None) and
-                    (self._checkPID())):
-                pass
+            if self._pid != None:
+                if self._checkPID():
+                    self._b = QMessageBox()
+                    self._b.setIcon(QMessageBox.Information)
+                    self._b.setWindowTitle("Atualização")
+                    self._b.setText("A atualização foi baixada e detectamos que o Receipt Generator está aberto.")
+                    self._b.setInformativeText("Clique em OK para fechá-lo e instalar a atualização")
+                    self._b.setStandardButtons(QMessageBox.Ok)
+                    self._b.exec_()
+                    if self._b.clickedButton() == self._b.button(QMessageBox.Ok):
+                        p = psutil.Process(int(self._pid))
+                        p.terminate()
             self._install()
         else:
             self.setWindowTitle('Erro ao baixar atualização')
             self.addMessage('Erro ao baixar atualização')
 
     def _checkPID(self) -> bool:
-        if not psutil.pid_exists(int(self._pid)):
-            return False
-        else:
-            p = psutil.Process(int(self._pid))
-            p.terminate()
-        return True
+        if psutil.pid_exists(int(self._pid)):
+            return True
+        return False
 
     def _install(self) -> None:
         self.setWindowTitle('Instalando atualização...')
