@@ -1,14 +1,17 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-config-data.json
-config-interface.json
-venv/
-env/
 # Distribution / packaging
 build/
 dist/
+*.spec
+# Virtualenv
+venv/
+env/
+# Others
 data/
 images/
-*.spec
 *.log
+config-data.json
+config-interface.json
+*.exe
