@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ui_mainwindowvEhkSK.ui'
+## Form generated from reading UI file 'ui_mainwindowTNiyPu.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -1005,7 +1005,7 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(tooltip)
         self.verticalGroupBox_0_0_0_0.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Carregar logo</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.label.setText(QCoreApplication.translate("MainWindow", u"512x512 pixels", None))
+        self.label.setText("")
         self.logo_load_btn.setText(QCoreApplication.translate("MainWindow", u"Carregar logo", None))
         self.verticalGroupBox_0_1.setTitle(QCoreApplication.translate("MainWindow", u"Dados do pagador", None))
         self.name_label_0.setText(QCoreApplication.translate("MainWindow", u"Nome: *", None))

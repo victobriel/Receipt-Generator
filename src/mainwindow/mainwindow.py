@@ -88,6 +88,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.ui.actionDocumentation.triggered.connect(
             lambda: wb.open('https://github.com/victobriel/receipt-generator'))
         self.ui.country_combo.setCurrentIndex(0)
+        self._document.saveReceiptNumber.connect(
+            lambda: self._configApp.set('lastNumber', self._document.number))
 
     def __uiInit(self) -> None:
         # Set date
@@ -499,6 +501,3 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self._updateConfig()
         else:
             self._config.clear()
-
-    def saveNumber(self, number: str) -> None:
-        self._configApp.set('lastNumber', number)

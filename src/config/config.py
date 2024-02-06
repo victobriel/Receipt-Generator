@@ -1,15 +1,16 @@
-import json
+import json,os
 
 class Config:
   def __init__(self, path = "config.json") -> None:
     self._path: str = path
+    if not os.path.exists("config"):
+      os.makedirs("config")
     self._config: dict = self._load_config()
 
   def _load_config(self) -> dict:
     try:
       with open(self._path, "r") as file:
         data = json.load(file)
-        file.close()
         return data
     except FileNotFoundError:
       return self._create_config()

@@ -319,7 +319,7 @@ border:none;
                 <string notr="true">color:#ccc;</string>
                </property>
                <property name="text">
-                <string>512x512 pixels</string>
+                <string/>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>

@@ -14,9 +14,9 @@ class Logo:
   def path(self, path: str) -> None:
     self._path = path
 
-  def getSize(self) -> tuple:
+  def getSize(self) -> dict:
     if self._path:
       image = Image.open(self._path)
-      return image.size
+      return {'width': image.width, 'height': image.height}
     else:
-      return (0, 0)
+      return {'width': 0, 'height': 0}

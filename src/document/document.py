@@ -1,14 +1,18 @@
-from PySide6.QtCore import QDate,QDir,QObject,QIODevice,QFile
+from PySide6.QtCore import QDate,QDir,QObject,QIODevice,QFile,Signal
 from PySide6.QtGui import QPainter
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.lib.styles import ParagraphStyle,getSampleStyleSheet
 from ..logo.logo import Logo
 from PySide6.QtPrintSupport import QPrinter
 from PySide6.QtPdf import QPdfDocument
 
 class Document(QObject):
+
+  saveReceiptNumber = Signal()
+
   def __init__(self, parent=None):
     super().__init__()
     self._parent = parent
@@ -191,15 +195,29 @@ class Document(QObject):
 
       # Logo
       if self.hasLogo():
-        c.drawImage(self._logo.path, m(30), m(-80), width=m(80), height=m(80))
+        # c.drawImage(self._logo.path, m(28), m(-80), width=m(80), height=m(80)) # 80x80
+        width, height = self._logo.getSize().values()
+        if width > height:
+          width = width * 80 / height
+          height = 80
+        else:
+          height = height * 80 / width
+          width = 80
+        c.drawImage(self._logo.path, m(28), m(-height), width=m(width), height=m(height))
 
-      c.scale(1, -1)
-      c.translate(-10, -40)
+        c.scale(1, -1)
+        c.translate(-10, -40)
 
-      y: int = 70
-      c.setFont("Roboto-Bold", 30)
+        c.setFont("Roboto-Bold", 30)
+        c.drawCentredString(m(350), m(height/2 + 40), "RECIBO")
+        y: int = int(height)
+      else:
+        c.scale(1, -1)
+        c.translate(-10, -40)
+        y: int = 70
+        c.setFont("Roboto-Bold", 30)
+        c.drawCentredString(m(350), m(y), "RECIBO")
 
-      c.drawCentredString(m(350), m(y), "RECIBO")
       y += 60
 
       # Company
@@ -332,7 +350,11 @@ class Document(QObject):
       y += 15
 
       c.setFont("Roboto-Italic", 11)
-      c.drawString(m(35), m(y), self._obs)
+      # wrap line if it's too long
+      text = self._obs
+      for i in range(0, len(text), 100):
+        c.drawString(m(35), m(y), text[i:i+100])
+        y += 10
       y += 10
 
       c.line(m(35), m(y), m(410), m(y))
@@ -377,7 +399,7 @@ class Document(QObject):
       self._parent.statusBar().showMessage(f"Erro ao renderizar recibo: {e}")
 
     self._fileName = dir
-    self._parent.saveNumber(self._number)
+    self.saveReceiptNumber.emit()
 
   def hasLogo(self) -> bool:
     return self._logo != None
