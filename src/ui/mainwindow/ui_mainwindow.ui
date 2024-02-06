@@ -1566,20 +1566,20 @@ border:none;
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>Arquivo</string>
     </property>
     <addaction name="actionQuit"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
-     <string>Edit</string>
+     <string>Editar</string>
     </property>
     <addaction name="actionPreview"/>
     <addaction name="actionPrint"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
-     <string>Help</string>
+     <string>Ajuda</string>
     </property>
     <addaction name="actionDocumentation"/>
     <addaction name="actionCheckForUpdates"/>
@@ -1616,7 +1616,7 @@ border:none;
   </action>
   <action name="actionDocumentation">
    <property name="text">
-    <string>Documentation</string>
+    <string>Documentação</string>
    </property>
   </action>
   <action name="actionPreview">
@@ -1625,7 +1625,7 @@ border:none;
      <normaloff>:/print/assets/preview-black-30.png</normaloff>:/print/assets/preview-black-30.png</iconset>
    </property>
    <property name="text">
-    <string>Preview</string>
+    <string>Visualizar modelo</string>
    </property>
    <property name="toolTip">
     <string>Go to preview area</string>
@@ -1639,7 +1639,7 @@ border:none;
   </action>
   <action name="actionCheckForUpdates">
    <property name="text">
-    <string>Check for updates</string>
+    <string>Verificar atualizações</string>
    </property>
   </action>
  </widget>

@@ -6,7 +6,7 @@ from PySide6.QtPrintSupport import (QPrinter, QPrintDialog)
 
 from shutil import copyfile
 import webbrowser as wb,requests,os,ctypes
-from subprocess import Popen,CalledProcessError,PIPE,DETACHED_PROCESS,CREATE_NEW_PROCESS_GROUP
+from subprocess import (Popen,CalledProcessError,PIPE,DETACHED_PROCESS,CREATE_NEW_PROCESS_GROUP)
 
 from ..ui.mainwindow.ui_mainwindow import Ui_MainWindow
 from ..productslist.productslist import ProductsList

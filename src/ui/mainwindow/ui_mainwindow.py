@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ui_mainwindowjMDNvc.ui'
+## Form generated from reading UI file 'ui_mainwindowvEhkSK.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -985,15 +985,15 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(shortcut)
         self.actionPrint.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+P", None))
 #endif // QT_CONFIG(shortcut)
-        self.actionDocumentation.setText(QCoreApplication.translate("MainWindow", u"Documentation", None))
-        self.actionPreview.setText(QCoreApplication.translate("MainWindow", u"Preview", None))
+        self.actionDocumentation.setText(QCoreApplication.translate("MainWindow", u"Documenta\u00e7\u00e3o", None))
+        self.actionPreview.setText(QCoreApplication.translate("MainWindow", u"Visualizar modelo", None))
 #if QT_CONFIG(tooltip)
         self.actionPreview.setToolTip(QCoreApplication.translate("MainWindow", u"Go to preview area", None))
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(shortcut)
         self.actionPreview.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+U", None))
 #endif // QT_CONFIG(shortcut)
-        self.actionCheckForUpdates.setText(QCoreApplication.translate("MainWindow", u"Check for updates", None))
+        self.actionCheckForUpdates.setText(QCoreApplication.translate("MainWindow", u"Verificar atualiza\u00e7\u00f5es", None))
         self.verticalGroupBox_0.setTitle("")
         self.groupBox.setTitle("")
         self.company_label.setText(QCoreApplication.translate("MainWindow", u"Empresa:", None))
@@ -1054,8 +1054,8 @@ class Ui_MainWindow(object):
         self.save_data_ckb.setText(QCoreApplication.translate("MainWindow", u"Salvar dados", None))
         self.print_btn.setText(QCoreApplication.translate("MainWindow", u"Imprimir", None))
         self.preview_btn.setText(QCoreApplication.translate("MainWindow", u"Visualizar modelo", None))
-        self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"File", None))
-        self.menuEdit.setTitle(QCoreApplication.translate("MainWindow", u"Edit", None))
-        self.menuHelp.setTitle(QCoreApplication.translate("MainWindow", u"Help", None))
+        self.menuFile.setTitle(QCoreApplication.translate("MainWindow", u"Arquivo", None))
+        self.menuEdit.setTitle(QCoreApplication.translate("MainWindow", u"Editar", None))
+        self.menuHelp.setTitle(QCoreApplication.translate("MainWindow", u"Ajuda", None))
     # retranslateUi
 
