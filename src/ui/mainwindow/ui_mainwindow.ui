@@ -246,7 +246,7 @@ padding-top:0;
                </widget>
               </item>
               <item>
-               <widget class="QLineEdit" name="receipt_num_edit">
+               <widget class="QLineEdit" name="recei_num_edit">
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
@@ -1646,7 +1646,7 @@ border:none;
  <tabstops>
   <tabstop>comp_edit</tabstop>
   <tabstop>date_edit</tabstop>
-  <tabstop>receipt_num_edit</tabstop>
+  <tabstop>recei_num_edit</tabstop>
   <tabstop>logo_btn</tabstop>
   <tabstop>logo_load_btn</tabstop>
   <tabstop>payer_nam_edit</tabstop>

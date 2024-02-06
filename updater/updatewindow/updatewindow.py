@@ -1,4 +1,5 @@
 from PySide6.QtWidgets import QMainWindow,QMessageBox
+from PySide6.QtCore import Slot
 from ui.updatewindow.ui_updatewindow import Ui_UpdateWindow
 from updater.updater import Updater
 import sys,psutil
@@ -45,6 +46,7 @@ class UpdateWindow(QMainWindow):
             self.addMessage(_m)
             self._enableDownload()
 
+    @Slot()
     def _download(self) -> None:
         self.setWindowTitle('Baixando atualização...')
         download: bool = self._updater.download()
@@ -85,6 +87,7 @@ class UpdateWindow(QMainWindow):
         else:
             self.setWindowTitle('Erro ao instalar atualização')
 
+    @Slot(str)
     def addMessage(self, message: str) -> None:
         self.ui.messages_list.addItem(message)
 
@@ -100,12 +103,14 @@ class UpdateWindow(QMainWindow):
     def getProgressBar(self) -> int:
         return self.ui.updateProgressBar.value()
 
+    @Slot(int, bool)
     def setProgressBar(self, value: int, max=False) -> None:
         if max:
             self.ui.updateProgressBar.setValue(self.ui.updateProgressBar.maximum())
         else:
             self.ui.updateProgressBar.setValue(value)
 
+    @Slot(int)
     def setProgressBarMax(self, value: int) -> None:
         self.ui.updateProgressBar.setMaximum(value)
 

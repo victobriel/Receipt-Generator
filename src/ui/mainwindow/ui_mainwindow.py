@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'ui_mainwindowTNiyPu.ui'
+## Form generated from reading UI file 'ui_mainwindowIqzULL.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.1
 ##
@@ -228,14 +228,14 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addWidget(self.reicept_number)
 
-        self.receipt_num_edit = QLineEdit(self.groupBox)
-        self.receipt_num_edit.setObjectName(u"receipt_num_edit")
-        self.receipt_num_edit.setMinimumSize(QSize(0, 35))
-        self.receipt_num_edit.setFont(font)
-        self.receipt_num_edit.setStyleSheet(u"")
-        self.receipt_num_edit.setClearButtonEnabled(False)
+        self.recei_num_edit = QLineEdit(self.groupBox)
+        self.recei_num_edit.setObjectName(u"recei_num_edit")
+        self.recei_num_edit.setMinimumSize(QSize(0, 35))
+        self.recei_num_edit.setFont(font)
+        self.recei_num_edit.setStyleSheet(u"")
+        self.recei_num_edit.setClearButtonEnabled(False)
 
-        self.verticalLayout_4.addWidget(self.receipt_num_edit)
+        self.verticalLayout_4.addWidget(self.recei_num_edit)
 
 
         self.verticalLayout_3.addLayout(self.verticalLayout_4)
@@ -929,8 +929,8 @@ class Ui_MainWindow(object):
         self.menuHelp.setObjectName(u"menuHelp")
         MainWindow.setMenuBar(self.menuBar)
         QWidget.setTabOrder(self.comp_edit, self.date_edit)
-        QWidget.setTabOrder(self.date_edit, self.receipt_num_edit)
-        QWidget.setTabOrder(self.receipt_num_edit, self.logo_btn)
+        QWidget.setTabOrder(self.date_edit, self.recei_num_edit)
+        QWidget.setTabOrder(self.recei_num_edit, self.logo_btn)
         QWidget.setTabOrder(self.logo_btn, self.logo_load_btn)
         QWidget.setTabOrder(self.logo_load_btn, self.payer_nam_edit)
         QWidget.setTabOrder(self.payer_nam_edit, self.payer_cpf_edit)
@@ -1001,7 +1001,7 @@ class Ui_MainWindow(object):
         self.date_label.setText(QCoreApplication.translate("MainWindow", u"Data do recibo: *", None))
         self.date_edit.setDisplayFormat(QCoreApplication.translate("MainWindow", u"dd/MM/yyyy", None))
         self.reicept_number.setText(QCoreApplication.translate("MainWindow", u"N\u00b0 do recibo: *", None))
-        self.receipt_num_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0000", None))
+        self.recei_num_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"0000", None))
 #if QT_CONFIG(tooltip)
         self.verticalGroupBox_0_0_0_0.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Carregar logo</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)

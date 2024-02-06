@@ -1,10 +1,11 @@
 from PySide6.QtWidgets import QTableWidget,QTableWidgetItem
+from PySide6.QtCore import Slot
 
 class ProductsList(QTableWidget):
   def __init__(self, parent=None) -> None:
     super().__init__()
     self._parent = parent
-    self.cellChanged.connect(self._onCellChanged)
+    self.cellChanged.connect(self._onCellChangedEmitted)
 
   def add(self, description: str, quantity: str, price: str) -> None:
     if len(description) == 0:
@@ -27,7 +28,8 @@ class ProductsList(QTableWidget):
     self.removeRow(row)
     self._parent.updateTotalValue()
 
-  def _onCellChanged(self, row: int, column: int) -> None:
+  @Slot(int, int)
+  def _onCellChangedEmitted(self, row: int, column: int) -> None:
     if column != 2:
       return
     if self.item(row, 2) is None:
