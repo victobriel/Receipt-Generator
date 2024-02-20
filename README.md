@@ -54,7 +54,7 @@
 <p>2. Extraia o arquivo zip e aproveite.</p>
 
 <h3>Contribuindo</h3>
-<p>Contribuições são bem-vindas! Se você tiver alguma sugestão, melhoria ou correção de bug, sinta-se à vontade para abrir um problema ou criar uma solicitação pull.</p>
+<p>Contribuições são bem-vindas! Se você tiver alguma sugestão, melhoria ou correção de bug, sinta-se à vontade para abrir um issue ou criar uma solicitação pull.</p>
 </div>
 
 <h2 id="screenshots">Screenshots:</h2>
