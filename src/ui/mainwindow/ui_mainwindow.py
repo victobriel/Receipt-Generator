@@ -1014,7 +1014,7 @@ class Ui_MainWindow(object):
         self.payer_cpf_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"CPF/CNPJ do pagador", None))
         self.phone_label_0.setText(QCoreApplication.translate("MainWindow", u"Celular:", None))
         self.payer_pho_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Celular do pagador", None))
-        self.verticalGroupBox_0_2.setTitle(QCoreApplication.translate("MainWindow", u"Dados do benefici\u00e1rio", None))
+        self.verticalGroupBox_0_2.setTitle(QCoreApplication.translate("MainWindow", u"Dados do emitente", None))
         self.name_label_1.setText(QCoreApplication.translate("MainWindow", u"Nome: *", None))
         self.benef_nam_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Nome do benefici\u00e1rio", None))
         self.cpf_label_1.setText(QCoreApplication.translate("MainWindow", u"CPF/CNPJ:", None))

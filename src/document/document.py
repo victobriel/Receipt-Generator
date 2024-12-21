@@ -8,6 +8,7 @@ from reportlab.lib.styles import ParagraphStyle,getSampleStyleSheet
 from ..logo.logo import Logo
 from PySide6.QtPrintSupport import QPrinter
 from PySide6.QtPdf import QPdfDocument
+from num2words import num2words
 
 class Document(QObject):
 
@@ -232,10 +233,10 @@ class Document(QObject):
       benefName: str = self._beneficiary["name"]
       if benefName == "":
         c.setFont("Roboto-Italic", 12)
-        c.drawString(m(35), m(y), "Beneficiário: Não informado")
+        c.drawString(m(35), m(y), "Emitente: Não informado")
         c.setFont("Roboto", 12)
       else:
-        c.drawString(m(35), m(y), "Beneficiário: {0}".format(benefName))
+        c.drawString(m(35), m(y), "Emitente: {0}".format(benefName))
       y += 15
 
       benefStreet: str = self._beneficiary["address"]["street"]
@@ -346,6 +347,9 @@ class Document(QObject):
       y += 15
 
       c.setFont("Roboto", 11)
+      c.drawRightString(m(400), m(y), "({0})".format(num2words(self._value, lang='pt_BR')))
+      y += 15
+
       c.drawString(m(35), m(y), "Observações:")
       y += 15
 
@@ -376,7 +380,7 @@ class Document(QObject):
       c.setFont("Roboto", 11)
       if benefName == "":
         c.setFont("Roboto-Italic", 11)
-        c.drawCentredString(m(225), m(y), "Beneficiário não informado")
+        c.drawCentredString(m(225), m(y), "Emitente não informado")
         c.setFont("Roboto", 11)
       else:
         c.drawCentredString(m(225), m(y), self._beneficiary["name"])
