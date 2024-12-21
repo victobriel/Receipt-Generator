@@ -1,4 +1,5 @@
 import re
+from num2words import num2words
 class Mask:
 	def __init__(self) -> None:
 		pass
@@ -75,6 +76,10 @@ class Mask:
 		else:
 			money = money[:-11] + ',' + money[-11:-8] + ',' + money[-8:-5] + ',' + money[-5:-2] + '.' + money[-2:]
 		return money
+
+	def money2words(self, money: str) -> str:
+		money.replace('.', ',')
+		return num2words(money, lang='pt_BR')
 	
 	def noDigit(self, text: str) -> str:
 		if not len(text): return ""

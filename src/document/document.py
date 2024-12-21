@@ -8,7 +8,7 @@ from reportlab.lib.styles import ParagraphStyle,getSampleStyleSheet
 from ..logo.logo import Logo
 from PySide6.QtPrintSupport import QPrinter
 from PySide6.QtPdf import QPdfDocument
-from num2words import num2words
+from ..utils.mask import Mask
 
 class Document(QObject):
 
@@ -342,12 +342,15 @@ class Document(QObject):
           c.line(m(35), m(y), m(410), m(y))
           y += 15
 
+      total: str = self._parent.applyMask(str(self._value), 'money')
+      
       c.setFont("Roboto-Bold", 11)
-      c.drawRightString(m(400), m(y), "TOTAL: {0} {1}".format(self._currency, self._parent.applyMask(str(self._value), 'money')))
+      c.drawRightString(m(400), m(y), "TOTAL: {0} {1}".format(self._currency, total))
       y += 15
 
+
       c.setFont("Roboto", 11)
-      c.drawRightString(m(400), m(y), "({0})".format(num2words(self._value, lang='pt_BR')))
+      c.drawRightString(m(400), m(y), "({0})".format(self._parent.applyMask(total, 'money2words')))
       y += 15
 
       c.drawString(m(35), m(y), "Observações:")

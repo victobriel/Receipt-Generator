@@ -157,6 +157,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             maskedText = mask.noLetter(text)
         if type == 'onlyNumber':
             maskedText = mask.onlyNumber(text)
+        if type == 'money2words':
+            maskedText = mask.money2words(text)
         del mask
         return maskedText
 
